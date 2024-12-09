@@ -4,7 +4,7 @@ require('dotenv').config();
 require('./config/db');
 const cors = require('cors');
 const path = require('path');
-
+const _dirname = path.resolve();
 // Import routers
 const authRouter = require('./routes/authroutes');
 const postRouter = require('./routes/postrouts');
@@ -13,10 +13,7 @@ const profilePicRouter = require('./routes/profilepic');
 
 // CORS options
 const corsOptions = {
-    origin: [
-        "http://localhost:5173",
-        "https://crefcard.vercel.app"
-    ],
+    origin: "http://localhost:5173",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
 };
@@ -27,8 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 // Static file serving
-app.use('/images', express.static(path.join(__dirname, 'public', 'images'))); // For images
-app.use(express.static(path.join(__dirname, 'dist'))); // For React build files
+app.use('/images', express.static(path.join(_dirname, 'public', 'images'))); // For images
+app.use(express.static(path.join(_dirname, 'Client', 'dist'))); // For React build files
 
 // API Routes
 app.use('/api/auth', authRouter);
@@ -43,12 +40,7 @@ app.get("/", (req, res) => {
 
 // Serve React app for all other routes
 app.get('*', (req, res) => {
-    const indexPath = path.join(__dirname, 'dist', 'index.html');
-    res.sendFile(indexPath, (err) => {
-        if (err) {
-            res.status(500).send("Error loading the React app.");
-        }
-    });
+    res.sendFile(path.join(_dirname, 'Client', 'dist', 'index.html'));
 });
 
 // Start the servers
