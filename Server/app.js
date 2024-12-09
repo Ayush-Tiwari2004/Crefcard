@@ -4,7 +4,7 @@ require('dotenv').config();
 require('./config/db');
 const cors = require('cors');
 const path = require('path');
-// const _dirname = path.resolve();
+const _dirname = path.resolve();
 // Import routers
 const authRouter = require('./routes/authroutes');
 const postRouter = require('./routes/postrouts');
@@ -24,8 +24,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 // Static file serving
-app.use('/images', express.static(path.join(__dirname, 'public', 'images'))); // For images
-app.use(express.static(path.join(__dirname, 'Client', 'dist'))); // For React build files
+app.use('/images', express.static(path.join(_dirname, 'public', 'images'))); // For images
+app.use(express.static(path.join(_dirname, 'Client', 'dist'))); // For React build files
 
 // API Routes
 app.use('/api/auth', authRouter);
@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 
 // Serve React app for all other routes
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Client', 'dist', 'index.html'));
+    res.sendFile(path.join(_dirname, 'Client', 'dist', 'index.html'));
 });
 
 // Start the servers
