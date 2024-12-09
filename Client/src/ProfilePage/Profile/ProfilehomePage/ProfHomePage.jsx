@@ -1,4 +1,5 @@
-import { GenerateStudy } from "./generateStudy"
+// import { GenerateStudy } from "./generateStudy"
+import { GenerateStudy } from "./GenerateStudy.jsx"
 import { RecentCards } from "./RecentCards"
 import ProfileCardData from "../../../API/ProfileCardData.json";
 // import ShowPost from "../../CreatePost/ShowPost";
