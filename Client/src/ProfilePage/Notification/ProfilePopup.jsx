@@ -13,7 +13,7 @@ export const ProfilePopup = ({ show, onClose }) => {
     const [loggedInUserEmail, setLoggedInUserEmail] = useState('');
     const [profilePic, setProfilePic] = useState(localStorage.getItem('profilepic'));
     const navigate = useNavigate();
-    const inputRef = useRef(null);
+    const inputRef = useRef(null); // used to trigger the file input
 
     useEffect(() => {
         setLoggedInUser(localStorage.getItem('loggedInUser'));
