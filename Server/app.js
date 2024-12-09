@@ -13,7 +13,7 @@ const profilePicRouter = require('./routes/profilepic');
 
 // CORS options
 const corsOptions = {
-    origin: "http://localhost:5173",
+    origin: "https://crefcard.onrender.com",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
 };
