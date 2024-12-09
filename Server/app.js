@@ -33,6 +33,11 @@ app.use('/api/posts', postRouter); // Unique route for posts
 app.use('/api/admin', adminRouter); // Unique route for admin
 app.use('/api/profile', profilePicRouter); // Unique route for profile picture
 
+// Health check route
+app.get("/", (req, res) => {
+    res.json({ message: "Server is running." });
+});
+
 // Serve React app for all other routes
 app.get('*', (req, res) => {
     const indexPath = path.join(__dirname, 'dist', 'index.html');
@@ -41,11 +46,6 @@ app.get('*', (req, res) => {
             res.status(500).send("Error loading the React app.");
         }
     });
-});
-
-// Health check route
-app.get("/", (req, res) => {
-    res.send("Server is running.");
 });
 
 // Start the server
