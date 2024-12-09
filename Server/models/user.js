@@ -17,7 +17,7 @@ const mongoose = require('mongoose');
     },
     profilepic:{
         type: String,
-        default: 'http://localhost:5000/images/default.png',
+        default: 'https://crefcard.onrender.com/images/default.png',
     },
     verifytoken:{
         type: String

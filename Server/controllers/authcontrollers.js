@@ -9,7 +9,7 @@ const secrateKey = process.env.JWT_SECRET;
 const signup = async (req, res) => {
     try {
         const { username, email, password } = req.body;
-        const defaultProfilePic = 'http://localhost:5000/images/default.png'; // Default if no image is uploaded
+        const defaultProfilePic = 'https://crefcard.onrender.com/images/default.png'; // Default if no image is uploaded
 
         const existingUser = await userModel.findOne({ email });
         if (existingUser) {
@@ -137,7 +137,7 @@ const resetPassword = async (req, res) =>{
                 from: process.env.EMAIL_ID,
                 to: email,
                 subject: "Sending Email for password Reset",
-                text: `this link is valid for 2 MINUTS http://localhost:5173/forgot-password/${user._id}/${setUserToken.verifytoken}`,
+                text: `this link is valid for 2 MINUTS https://crefcard.onrender.com/forgot-password/${user._id}/${setUserToken.verifytoken}`,
             } 
 
             transportar.sendMail(mailOption, (error, info) =>{

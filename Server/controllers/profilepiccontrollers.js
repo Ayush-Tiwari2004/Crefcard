@@ -3,7 +3,7 @@ const userModel = require('../models/user')
 const uploadProfilePic =  async (req, res) => {
     try {
         const userId = req.body.userId;
-        const profilepic = `http://localhost:5000/images/${req.file.filename}`;
+        const profilepic = `https://crefcard.onrender.com/images/${req.file.filename}`;
         
         // Update user's profile picture in DB
         const updatedUser = await userModel.findByIdAndUpdate(
