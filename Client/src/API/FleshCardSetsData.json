@@ -1,0 +1,38 @@
+[
+    {
+        "id": "unique",
+        "terms" : "32 Terms",
+        "profession": "Frontend Developer",
+        "username": "Santosh Yadav",
+        "profileimg_url": "/images/ayush3.jpg",
+        "title": "Become a profetional Developer",
+        "createdDate": "Last Week"
+    },
+    {
+        "id": "rtrefdfe7r894fe0ferefefr",
+        "terms" : "6 Terms",
+        "profession": "Full Stack Developer",
+        "username": "Ayush Tiwari",
+        "profileimg_url": "/images/ayush1.jpg",
+        "title": "Full stack developer",
+        "createdDate": "4 Week"
+    },
+    {
+        "id": "5d4sf64e8r7e87g4vx5cv4d4g8er",
+        "terms" : "12 Terms",
+        "profession": "Engineer",
+        "username": "Sivam Maurya",
+        "profileimg_url": "/images/tom.jpeg",
+        "title": "Software engineer",
+        "createdDate": "1 month"
+    },
+    {
+        "id": "545dsdster7e5re1ce8v48et",
+        "terms" : "45 Terms",
+        "profession": "Profetionl Developer",
+        "username": "Mukesh Yadav",
+        "profileimg_url": "/images/Joey.jpeg",
+        "title": "How to star development journey",
+        "createdDate": "6 month"
+    }
+]

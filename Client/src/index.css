@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    list-style: none;
+    scrollbar-width: none;
+}
+body{
+    background-color: #F6F7FB;
+    /* height: 100vh;
+    width: 100%; */
+}
+h1{
+    font-size: 40px;
+    font-weight: 500;
+}
+h2{
+    font-size: 35px;
+    font-weight: 500;
+}
+h3{
+    font-size: 30px;
+    font-weight: 500;
+}
+h4{
+    font-size: 24px;
+    font-weight: 500;
+}
+h5{
+    font-size: 20px;
+    font-weight: 500;
+}
+h6{
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.newimg{
+    background-image: url(https://assets.quizlet.com/_next/static/media/google_play.fca45251.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 42px;
+    padding: 0 4rem;
+}
+.newimg-1{
+    background-image: url(https://assets.quizlet.com/_next/static/media/apple.4170bb1a.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 42px;
+    padding: 0 4rem;
+}
+.slick-slide > div{
+    margin: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+}
+.slick-prev, .slick-next{
+    color: gray;
+    height: 65px;
+    width: 55px;
+    z-index: 10;
+}
+/* .slick-next:before, .slick-prev:before{
+    font-size: 25px !important;
+} */
+.arun:hover{
+    color: rgb(155, 155, 196);
+ }
+.sidebar .active{
+    background: #334155;
+    color: #94a3b8;
+ }
+.sidelink{
+    display: flex;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 8px;
+    gap: 8px;
+    border-radius: 8px;
+    align-items: center;
+    color: #cbd5e1;
+    font-weight: 500;
+}
+hr{
+    height: 2px;
+    background: #334155;
+    border-top: 0;
+}
+.min-shadow{
+    /* background: -webkit-gradient(linear, left top, left bottom, color-stop(.6, #2e385600), color-stop(1, #2a3453)); */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(.6, #2e385600), color-stop(1, #2a3453));
+}
+.libraryLinks a.active{
+    position: relative;
+    margin-bottom: -0.33rem;
+    color: white;
+    border-bottom: 2px solid #ffffff;
+}   
+.links:hover{
+    margin-bottom: -0.33rem;
+    border-bottom: 2px solid #e3e2eb;
+} 
+.welcome{
+clip-path: polygon(0 0, 100% 0, 38% 100%, 0% 100%);
+}
+.login{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 65% 100%);
+}
+.signup-inputs{
+    background: transparent;
+    border-bottom: 2px solid #c4c3c37f;
+    margin-bottom: 1rem;
+}
+.fleshicons{
+    /* h-10 w-10 rounded-full border-2 border-gray-300 text-white text-[22px] font-bold hover:bg-gray-400 flex items-center justify-center */
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid #d1d5db;
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:all .5s;
+    &:hover{
+        background: #9ca3af;
+    }
+}
+.imgborders{
+    border: 2px dotted white;
+    border-radius: 8px;
+}
+.adminSidebar{
+    padding: 6px 10px;
+    border-radius: 8px;
+    &:hover{
+        background: gray;
+    }
+}
+/* Add this to your global CSS file */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #586380 #2e3856;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #2e3856;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #586380;
+    border-radius: 4px;
+}
