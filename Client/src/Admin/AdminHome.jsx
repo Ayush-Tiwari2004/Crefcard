@@ -119,59 +119,74 @@ const AdminHome = () => {
   }, [currentPage, search, sortBy, order]);
 
   return (
-    <div className="w-full h-full justify-center items-center p-5">
-      <h3 className="ms-10">User Data</h3>
-
-      {/* Search Input */}
-      <div className="flex justify-between items-center mb-4 px-10">
-        <input
-          type="text"
-          placeholder="Search by username or email"
-          value={search}
-          onChange={handleSearchChange}
-          className="border p-2 rounded outline-none text-black"
-        />
+    <div className="w-full min-h-screen bg-gray-900 p-3 sm:p-5">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+        <h3 className="text-xl font-bold">User Management</h3>
+        <div className="w-full sm:w-auto flex gap-4">
+          <input
+            type="text"
+            placeholder="Search by username or email"
+            value={search}
+            onChange={handleSearchChange}
+            className="w-full sm:w-64 border border-gray-700 bg-gray-800 p-2 rounded-lg outline-none text-sm"
+          />
+          <button 
+            onClick={handleLogout} 
+            className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-sm transition-colors"
+          >
+            Logout
+          </button>
+        </div>
       </div>
 
       {/* User Table */}
-      <div className="px-20 py-10 m-10 bg-gray-800 rounded-md shadow-xl shadow-gray-950/50">
-        <div className="w-full table-auto">
-          <div className="grid grid-cols-10 ps-2">
-            <div className="p-2 col-span-1">Photo</div>
-            <div className="p-2 col-span-3">
-              <button onClick={() => handleSortChange("username")}>
-                User Name {sortBy === "username" ? (order === "asc" ? "↑" : "↓") : ""}
+      <div className="bg-gray-800 rounded-lg shadow-xl overflow-x-auto">
+        <div className="min-w-full divide-y divide-gray-700">
+          <div className="grid grid-cols-10 bg-gray-750 p-4">
+            <div className="col-span-1 text-sm font-medium text-gray-300">Photo</div>
+            <div className="col-span-3">
+              <button 
+                onClick={() => handleSortChange("username")}
+                className="text-sm font-medium text-gray-300 hover:text-white flex items-center gap-1"
+              >
+                User Name {sortBy === "username" && <span>{order === "asc" ? "↑" : "↓"}</span>}
               </button>
             </div>
-            <div className="p-2 col-span-4">
-              <button onClick={() => handleSortChange("email")}>
-                Email {sortBy === "email" ? (order === "asc" ? "↑" : "↓") : ""}
+            <div className="col-span-4">
+              <button 
+                onClick={() => handleSortChange("email")}
+                className="text-sm font-medium text-gray-300 hover:text-white flex items-center gap-1"
+              >
+                Email {sortBy === "email" && <span>{order === "asc" ? "↑" : "↓"}</span>}
               </button>
             </div>
-            <div className="p-2 col-span-1">Update</div>
-            <div className="p-2 col-span-1">Delete</div>
+            <div className="col-span-1">Update</div>
+            <div className="col-span-1">Delete</div>
           </div>
-          <div>
+
+          <div className="divide-y divide-gray-700">
             {userData.length > 0 ? (
               userData.map((user) => (
-                <div key={user._id} className="grid grid-cols-10 ps-2 py-2">
+                <div key={user._id} className="grid grid-cols-10 p-4 hover:bg-gray-750 transition-colors">
                   <div className="col-span-1">
                     <img
                       src={user.profilepic}
-                      className="bg-white h-10 w-10 rounded-full object-cover"
-                      alt="Profile"
+                      className="h-10 w-10 rounded-full object-cover border-2 border-gray-600"
+                      alt={user.username}
                     />
                   </div>
-                  <div className="col-span-3">{user.username}</div>
-                  <div className="col-span-4">{user.email}</div>
+                  <div className="col-span-3 flex items-center text-sm">{user.username}</div>
+                  <div className="col-span-4 flex items-center text-sm text-gray-300">{user.email}</div>
                   <div className="col-span-1">
                     <NavLink to={`update/${user._id}`}>
-                      <button className="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
+                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-sm transition-colors">
+                        Update
+                      </button>
                     </NavLink>
                   </div>
                   <div className="col-span-1">
                     <button
-                      className="bg-red-500 text-white px-4 py-2 rounded"
+                      className="bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-lg text-sm transition-colors"
                       onClick={() => handleDelete(user._id)}
                     >
                       Delete
@@ -180,21 +195,21 @@ const AdminHome = () => {
                 </div>
               ))
             ) : (
-              <div>No users found.</div>
+              <div className="p-4 text-center text-gray-400">No users found.</div>
             )}
           </div>
         </div>
       </div>
 
-      {/* Pagination */}
-      <div className="flex items-center justify-around px-4 py-3 sm:px-6">
+      {/* Pagination - make it scrollable on mobile */}
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 overflow-x-auto">
         <div className="flex items-center">
           <button
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
-          className={`mx-1 px-4 py-2 rounded ${
-            currentPage === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white"
-          }`}
+            className={`mx-1 px-4 py-2 rounded ${
+              currentPage === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white"
+            }`}
           >
             <span className="mr-2">←</span> Previous
           </button>
@@ -247,151 +262,9 @@ const AdminHome = () => {
         </div>
       </div>
 
-      <div className="text-end mr-10 mt-4">
-        <button onClick={handleLogout} className="bg-red-600 px-4 py-1 rounded-md">
-          Logout
-        </button>
-      </div>
       <ToastContainer />
     </div>
   );
 };
 
 export default AdminHome;
-
-
-
-
-
-
-
-// import React, { useEffect, useState } from "react";
-// import { handleError, handleSuccess } from "../utils";
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { NavLink, useNavigate } from "react-router-dom";
-
-// const AdminHome = () => {
-//   const [userData, setUserData] = useState([]);
-//   const navigate = useNavigate();
-
-//   const getAllUsersData = async () => {
-//     const token = localStorage.getItem("token");
-//     if (!token) {
-//       handleError("Unauthorized. Please login first.");
-//       return;
-//     }
-
-//     try {
-//       const response = await fetch("http://localhost:5000/api/admin/admin", {
-//         method: "GET",
-//         headers: {
-//           Authorization: `Bearer ${token}`, // Sending the token in the Authorization header
-//         },
-//       });
-
-//       const data = await response.json();
-//       setUserData(data);
-//     } catch (error) {
-//       console.error("Error fetching data: ", error);
-//     }
-//   };
-
-//   const handleDelete = async (_id) => {
-//     const confirmationForDeletingData = window.confirm("Are you sure you want to delete this user?");
-//     if (!confirmationForDeletingData) {
-//       handleSuccess("delete user confirmation canceld successfully!")
-//       return;
-//     }
-//     try {
-//       const token = localStorage.getItem("token"); // Get the token from localStorage
-//       if (!token) {
-//         handleError("unauthorized please log in !")
-//         return;
-//       }
-
-//       const response = await fetch(`http://localhost:5000/api/admin/admin/delete/${_id}`, {
-//         method: "DELETE",
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         } 
-//       })
-//       // const data = await response.json();
-//       // console.log(data)
-//       if (response.ok) {
-//         getAllUsersData();
-//       }
-//       handleSuccess("user delete successfully!");
-//     }
-//     catch (error) {
-//       handleError("error");
-//     }
-//   }
-
-//   useEffect(() => {
-//     getAllUsersData(); // Fetch users when the component render
-//   }, []);
-
-//   const handlelogout = () =>{
-//     localStorage.removeItem('user');
-//     localStorage.removeItem('isAdmin');
-//     handleSuccess("admin logdout successfully!");
-//     navigate('/profile');
-//   }
-
-//   return (
-//     <div className="w-full h-full justify-center items-center p-5">
-//       <h3 className="ms-10">User Data</h3>
-//       <div className="px-20 py-10 m-10 bg-gray-800 rounded-md shadow-xl shadow-gray-950/50">
-//         {/* Table for displaying user data */}
-//         <div className="w-full table-auto">
-//           <div>
-//             <div className="grid grid-cols-10 ps-2">
-//               <div className="p-2 col-span-1">Photo</div>
-//               <div className="p-2 col-span-3">User Name</div>
-//               <div className="p-2 col-span-4">Email</div>
-//               <div className="p-2 col-span-1">Update</div>
-//               <div className="p-2 col-span-1">Delete</div>
-//             </div>
-//           </div>
-//           <div>
-//             {userData.length > 0 ? (
-//               userData.map((user) => (
-//                 <div key={user._id} className="hover:bg-gray-700 rounded-md grid grid-cols-10 items-center ps-2 py-2">
-//                   <div className="p-2 col-span-1">
-//                     <img src={user.profilepic} className="bg-white h-10 w-10 rounded-full object-cover" alt="" />
-//                   </div>
-//                   <div className="p-2 col-span-3">{user.username}</div>
-//                   <div className="p-2 col-span-4">{user.email}</div>
-//                   <div className="p-2 col-span-1">
-//                     <NavLink to={`update/${user._id}`}>
-//                     <button className="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
-//                     </NavLink>
-//                   </div>
-//                   <div className="p-2 col-span-1">
-//                     <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleDelete(user._id)}>Delete</button>
-//                   </div>
-//                 </div>
-//               ))
-//             ) : (
-//               <div>
-//                 <div colSpan="4" className="text-center p-2">
-//                   No users found.
-//                 </div>
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//       <div className="text-end mr-10">
-//         <button 
-//         onClick={handlelogout} 
-//         className="bg-red-600 px-4 py-1 rounded-md" 
-//         >Logout</button>
-//       </div>
-//       <ToastContainer />
-//     </div>
-//   );
-// };
-
-// export default AdminHome; 
