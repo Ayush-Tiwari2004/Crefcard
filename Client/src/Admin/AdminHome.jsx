@@ -75,7 +75,7 @@ const AdminHome = () => {
 
       if (response.ok) {
         handleSuccess("User deleted successfully!");
-        getAllUsersData(); // Refresh data
+        getAllUsersData();
       } else {
         handleError("Failed to delete user.");
       }
@@ -94,12 +94,12 @@ const AdminHome = () => {
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
-    setCurrentPage(1); // Reset to page 1
+    setCurrentPage(1);
   };
 
   const handleSortChange = (field) => {
     setSortBy(field);
-    setOrder(order === "asc" ? "desc" : "asc"); // Toggle sorting order
+    setOrder(order === "asc" ? "desc" : "asc");
   };
 
   const handlePreviousPage = () => {
@@ -119,138 +119,139 @@ const AdminHome = () => {
   }, [currentPage, search, sortBy, order]);
 
   return (
-    <div className="w-full h-full justify-center items-center p-5">
-      <h3 className="ms-10">User Data</h3>
-
-      {/* Search Input */}
-      <div className="flex justify-between items-center mb-4 px-10">
-        <input
-          type="text"
-          placeholder="Search by username or email"
-          value={search}
-          onChange={handleSearchChange}
-          className="border p-2 rounded outline-none text-black"
-        />
-      </div>
-
-      {/* User Table */}
-      <div className="px-20 py-10 m-10 bg-gray-800 rounded-md shadow-xl shadow-gray-950/50">
-        <div className="w-full table-auto">
-          <div className="grid grid-cols-10 ps-2">
-            <div className="p-2 col-span-1">Photo</div>
-            <div className="p-2 col-span-3">
-              <button onClick={() => handleSortChange("username")}>
-                User Name {sortBy === "username" ? (order === "asc" ? "↑" : "↓") : ""}
-              </button>
-            </div>
-            <div className="p-2 col-span-4">
-              <button onClick={() => handleSortChange("email")}>
-                Email {sortBy === "email" ? (order === "asc" ? "↑" : "↓") : ""}
-              </button>
-            </div>
-            <div className="p-2 col-span-1">Update</div>
-            <div className="p-2 col-span-1">Delete</div>
-          </div>
-          <div>
-            {userData.length > 0 ? (
-              userData.map((user) => (
-                <div key={user._id} className="grid grid-cols-10 ps-2 py-2">
-                  <div className="col-span-1">
-                    <img
-                      src={user.profilepic}
-                      className="bg-white h-10 w-10 rounded-full object-cover"
-                      alt="Profile"
-                    />
-                  </div>
-                  <div className="col-span-3">{user.username}</div>
-                  <div className="col-span-4">{user.email}</div>
-                  <div className="col-span-1">
-                    <NavLink to={`update/${user._id}`}>
-                      <button className="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
-                    </NavLink>
-                  </div>
-                  <div className="col-span-1">
-                    <button
-                      className="bg-red-500 text-white px-4 py-2 rounded"
-                      onClick={() => handleDelete(user._id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div>No users found.</div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Pagination */}
-      <div className="flex items-center justify-around px-4 py-3 sm:px-6">
-        <div className="flex items-center">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900 p-4 sm:p-6 lg:p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-0">
+            User Management
+          </h1>
           <button
-            onClick={handlePreviousPage}
-            disabled={currentPage === 1}
-          className={`mx-1 px-4 py-2 rounded ${
-            currentPage === 1 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white"
-          }`}
+            onClick={handleLogout}
+            className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors duration-200 ease-in-out"
           >
-            <span className="mr-2">←</span> Previous
+            Logout
           </button>
         </div>
 
-        <div className="flex items-center gap-2">
-          {[...Array(totalPages)].map((_, index) => {
-            const pageNumber = index + 1;
-            // Show first page, last page, current page, and one page before and after current
-            if (
-              pageNumber === 1 ||
-              pageNumber === totalPages ||
-              pageNumber === currentPage ||
-              pageNumber === currentPage - 1 ||
-              pageNumber === currentPage + 1
-            ) {
-              return (
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+          <div className="p-6">
+            <div className="flex flex-col sm:flex-row justify-between items-center mb-6">
+              <div className="w-full sm:w-96 mb-4 sm:mb-0">
+                <input
+                  type="text"
+                  placeholder="Search users..."
+                  value={search}
+                  onChange={handleSearchChange}
+                  className="w-full px-4 py-2 rounded-lg border dark:border-gray-700 bg-gray-50 dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 dark:text-white"
+                />
+              </div>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead>
+                  <tr className="text-left border-b dark:border-gray-700">
+                    <th className="p-4">Photo</th>
+                    <th className="p-4">
+                      <button
+                        onClick={() => handleSortChange("username")}
+                        className="flex items-center space-x-1 text-gray-700 dark:text-gray-200 hover:text-blue-500"
+                      >
+                        <span>Username</span>
+                        {sortBy === "username" && (
+                          <span>{order === "asc" ? "↑" : "↓"}</span>
+                        )}
+                      </button>
+                    </th>
+                    <th className="p-4">
+                      <button
+                        onClick={() => handleSortChange("email")}
+                        className="flex items-center space-x-1 text-gray-700 dark:text-gray-200 hover:text-blue-500"
+                      >
+                        <span>Email</span>
+                        {sortBy === "email" && (
+                          <span>{order === "asc" ? "↑" : "↓"}</span>
+                        )}
+                      </button>
+                    </th>
+                    <th className="p-4">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {userData.length > 0 ? (
+                    userData.map((user) => (
+                      <tr
+                        key={user._id}
+                        className="border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700"
+                      >
+                        <td className="p-4">
+                          <img
+                            src={user.profilepic}
+                            className="h-10 w-10 rounded-full object-cover"
+                            alt={user.username}
+                          />
+                        </td>
+                        <td className="p-4 dark:text-gray-200">{user.username}</td>
+                        <td className="p-4 dark:text-gray-200">{user.email}</td>
+                        <td className="p-4">
+                          <div className="flex space-x-2">
+                            <NavLink to={`update/${user._id}`}>
+                              <button className="px-3 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded-md transition-colors duration-200">
+                                Edit
+                              </button>
+                            </NavLink>
+                            <button
+                              onClick={() => handleDelete(user._id)}
+                              className="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded-md transition-colors duration-200"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="4" className="p-4 text-center dark:text-gray-200">
+                        No users found
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="mt-6 flex flex-col sm:flex-row items-center justify-between">
+              <div className="flex space-x-2 mb-4 sm:mb-0">
                 <button
-                  key={pageNumber}
-                  onClick={() => setCurrentPage(pageNumber)}
-                  className={`px-3 py-1 rounded-md ${
-                    currentPage === pageNumber
-                      ? "bg-blue-500 text-white"
-                      : "text-gray-700 hover:bg-gray-100"
+                  onClick={handlePreviousPage}
+                  disabled={currentPage === 1}
+                  className={`px-4 py-2 rounded-md ${
+                    currentPage === 1
+                      ? "bg-gray-300 cursor-not-allowed"
+                      : "bg-blue-500 hover:bg-blue-600 text-white"
                   }`}
                 >
-                  {pageNumber}
+                  Previous
                 </button>
-              );
-            } else if (
-              pageNumber === currentPage - 2 ||
-              pageNumber === currentPage + 2
-            ) {
-              return <span key={pageNumber}>...</span>;
-            }
-            return null;
-          })}
+                <button
+                  onClick={handleNextPage}
+                  disabled={currentPage === totalPages}
+                  className={`px-4 py-2 rounded-md ${
+                    currentPage === totalPages
+                      ? "bg-gray-300 cursor-not-allowed"
+                      : "bg-blue-500 hover:bg-blue-600 text-white"
+                  }`}
+                >
+                  Next
+                </button>
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                Page {currentPage} of {totalPages}
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div className="flex items-center">
-          <button
-            onClick={handleNextPage}
-            disabled={currentPage === totalPages}
-            className={`mx-1 px-4 py-2 rounded ${
-              currentPage === totalPages ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500 text-white"
-            }`}
-          >
-            Next <span className="ml-2">→</span>
-          </button>
-        </div>
-      </div>
-
-      <div className="text-end mr-10 mt-4">
-        <button onClick={handleLogout} className="bg-red-600 px-4 py-1 rounded-md">
-          Logout
-        </button>
       </div>
       <ToastContainer />
     </div>
@@ -258,140 +259,3 @@ const AdminHome = () => {
 };
 
 export default AdminHome;
-
-
-
-
-
-
-
-// import React, { useEffect, useState } from "react";
-// import { handleError, handleSuccess } from "../utils";
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import { NavLink, useNavigate } from "react-router-dom";
-
-// const AdminHome = () => {
-//   const [userData, setUserData] = useState([]);
-//   const navigate = useNavigate();
-
-//   const getAllUsersData = async () => {
-//     const token = localStorage.getItem("token");
-//     if (!token) {
-//       handleError("Unauthorized. Please login first.");
-//       return;
-//     }
-
-//     try {
-//       const response = await fetch("http://localhost:5000/api/admin/admin", {
-//         method: "GET",
-//         headers: {
-//           Authorization: `Bearer ${token}`, // Sending the token in the Authorization header
-//         },
-//       });
-
-//       const data = await response.json();
-//       setUserData(data);
-//     } catch (error) {
-//       console.error("Error fetching data: ", error);
-//     }
-//   };
-
-//   const handleDelete = async (_id) => {
-//     const confirmationForDeletingData = window.confirm("Are you sure you want to delete this user?");
-//     if (!confirmationForDeletingData) {
-//       handleSuccess("delete user confirmation canceld successfully!")
-//       return;
-//     }
-//     try {
-//       const token = localStorage.getItem("token"); // Get the token from localStorage
-//       if (!token) {
-//         handleError("unauthorized please log in !")
-//         return;
-//       }
-
-//       const response = await fetch(`http://localhost:5000/api/admin/admin/delete/${_id}`, {
-//         method: "DELETE",
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         } 
-//       })
-//       // const data = await response.json();
-//       // console.log(data)
-//       if (response.ok) {
-//         getAllUsersData();
-//       }
-//       handleSuccess("user delete successfully!");
-//     }
-//     catch (error) {
-//       handleError("error");
-//     }
-//   }
-
-//   useEffect(() => {
-//     getAllUsersData(); // Fetch users when the component render
-//   }, []);
-
-//   const handlelogout = () =>{
-//     localStorage.removeItem('user');
-//     localStorage.removeItem('isAdmin');
-//     handleSuccess("admin logdout successfully!");
-//     navigate('/profile');
-//   }
-
-//   return (
-//     <div className="w-full h-full justify-center items-center p-5">
-//       <h3 className="ms-10">User Data</h3>
-//       <div className="px-20 py-10 m-10 bg-gray-800 rounded-md shadow-xl shadow-gray-950/50">
-//         {/* Table for displaying user data */}
-//         <div className="w-full table-auto">
-//           <div>
-//             <div className="grid grid-cols-10 ps-2">
-//               <div className="p-2 col-span-1">Photo</div>
-//               <div className="p-2 col-span-3">User Name</div>
-//               <div className="p-2 col-span-4">Email</div>
-//               <div className="p-2 col-span-1">Update</div>
-//               <div className="p-2 col-span-1">Delete</div>
-//             </div>
-//           </div>
-//           <div>
-//             {userData.length > 0 ? (
-//               userData.map((user) => (
-//                 <div key={user._id} className="hover:bg-gray-700 rounded-md grid grid-cols-10 items-center ps-2 py-2">
-//                   <div className="p-2 col-span-1">
-//                     <img src={user.profilepic} className="bg-white h-10 w-10 rounded-full object-cover" alt="" />
-//                   </div>
-//                   <div className="p-2 col-span-3">{user.username}</div>
-//                   <div className="p-2 col-span-4">{user.email}</div>
-//                   <div className="p-2 col-span-1">
-//                     <NavLink to={`update/${user._id}`}>
-//                     <button className="bg-blue-500 text-white px-4 py-2 rounded">Update</button>
-//                     </NavLink>
-//                   </div>
-//                   <div className="p-2 col-span-1">
-//                     <button className="bg-red-500 text-white px-4 py-2 rounded" onClick={() => handleDelete(user._id)}>Delete</button>
-//                   </div>
-//                 </div>
-//               ))
-//             ) : (
-//               <div>
-//                 <div colSpan="4" className="text-center p-2">
-//                   No users found.
-//                 </div>
-//               </div>
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//       <div className="text-end mr-10">
-//         <button 
-//         onClick={handlelogout} 
-//         className="bg-red-600 px-4 py-1 rounded-md" 
-//         >Logout</button>
-//       </div>
-//       <ToastContainer />
-//     </div>
-//   );
-// };
-
-// export default AdminHome; 
