@@ -9,13 +9,12 @@ import { ProfilePopup } from '../Notification/ProfilePopup';
 const ProfileHeader = ({ toggleSidebar }) => {
     const [showProfilePopup, setShowProfilePopup] = useState(false);
     const [profilePic, setProfilePic] = useState(localStorage.getItem('profilepic'));
+    const [isDropdownActive, setIsDropdownActive] = useState(false);
+    const dropdownRef = useRef(null);
 
     const togglePopup = () => {
         setShowProfilePopup(!showProfilePopup);
     }
-
-    const [isDropdownActive, setIsDropdownActive] = useState(false);
-    const dropdownRef = useRef(null);
 
     const handleDropdownBtn = () => {
         setIsDropdownActive(!isDropdownActive);
@@ -28,10 +27,8 @@ const ProfileHeader = ({ toggleSidebar }) => {
     };
 
     useEffect(() => {
-        // setProfilePic(localStorage.getItem('profilepic'));
         document.addEventListener('click', handleOutsideClick);
         return () => {
-
             document.removeEventListener('click', handleOutsideClick);
         };
     }, []);
@@ -39,67 +36,112 @@ const ProfileHeader = ({ toggleSidebar }) => {
     return (
         <>
             <header className='sticky top-0 z-50'>
-                <div id='ayush'>
-                    <div className="md:h-16 flex flex-col gap-2 h-24 bg-[#0a092d]">
-                        <div className="flex gap-10 items-center justify-between w-full text-white py-2 px-5">
-                            <div className="flex gap-5 text-3xl">
-                                <IoMenu onClick={toggleSidebar} className='cursor-pointer' />
+                <div className='bg-[#0a092d] shadow-lg'>
+                    {/* Main Header Container */}
+                    <div className="flex flex-col w-full">
+                        {/* Top Bar */}
+                        <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
+                            {/* Left Section */}
+                            <div className="flex items-center gap-3 sm:gap-5">
+                                <IoMenu 
+                                    onClick={toggleSidebar} 
+                                    className='text-white text-2xl sm:text-3xl cursor-pointer hover:text-gray-300' 
+                                />
                                 <NavLink to="/profile">
-                                    <SiQuizlet />
+                                    <SiQuizlet className='text-white text-2xl sm:text-3xl hover:text-gray-300' />
                                 </NavLink>
                             </div>
 
-                            <div className="md:flex flex-grow max-w-[40rem] gap-5 hidden items-center bg-[#2e3856] py-[0.4rem] px-4 rounded-lg">
-                                <FaSearch className='text-[#939bb4]' />
+                            {/* Desktop Search Bar */}
+                            <div className="hidden md:flex flex-grow max-w-2xl mx-8">
+                                <div className="flex items-center w-full bg-[#2e3856] rounded-lg px-4 py-2">
+                                    <FaSearch className='text-[#939bb4] text-lg' />
+                                    <input
+                                        type="text"
+                                        className='w-full bg-transparent outline-none text-white ml-3 placeholder-[#939bb4]'
+                                        placeholder='Search for flashcards'
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Right Section */}
+                            <div className="flex items-center gap-2 sm:gap-4">
+                                {/* Create Button & Dropdown */}
+                                <div ref={dropdownRef} className="relative">
+                                    <button 
+                                        onClick={handleDropdownBtn}
+                                        className="bg-blue-600 hover:bg-blue-700 p-2 rounded-lg flex items-center text-white"
+                                    >
+                                        <FaPlus className='text-lg' />
+                                    </button>
+
+                                    {/* Dropdown Menu */}
+                                    {isDropdownActive && (
+                                        <div className="absolute right-0 sm:right-auto sm:-left-48 top-full mt-2 w-48 sm:w-56 
+                                            bg-[#0a092d] border border-slate-400 rounded-md shadow-lg z-50">
+                                            <div className="py-2 px-3">
+                                                <NavLink to="/library/sets" className="block py-2 px-3 text-sm text-slate-200 hover:bg-slate-700 rounded">
+                                                    Flashcard Sets
+                                                </NavLink>
+                                                <NavLink to="/studyguide/past-text" className="block py-2 px-3 text-sm text-slate-200 hover:bg-slate-700 rounded">
+                                                    Study Guide
+                                                </NavLink>
+                                                <NavLink to="/practicetest/flesh-card" className="block py-2 px-3 text-sm text-slate-200 hover:bg-slate-700 rounded">
+                                                    Practice Test
+                                                </NavLink>
+                                                <NavLink className="block py-2 px-3 text-sm text-slate-200 hover:bg-slate-700 rounded">
+                                                    Folder
+                                                </NavLink>
+                                                <NavLink className="block py-2 px-3 text-sm text-slate-200 hover:bg-slate-700 rounded">
+                                                    Class
+                                                </NavLink>
+                                                <NavLink to="/createpost" className="block py-2 px-3 text-sm text-slate-200 hover:bg-slate-700 rounded">
+                                                    Create Post
+                                                </NavLink>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+
+                                {/* Upgrade Button */}
+                                <button className='hidden sm:block bg-[#FFCD1F] hover:bg-[#e6b91c] rounded-lg px-4 py-2 text-black font-medium text-sm'>
+                                    Upgrade: Free 7 day-trial
+                                </button>
+
+                                {/* Profile Picture */}
+                                <button 
+                                    onClick={togglePopup}
+                                    className="relative"
+                                >
+                                    <img 
+                                        src={profilePic} 
+                                        className='h-8 w-8 bg-white sm:h-10 sm:w-10 rounded-full object-cover border-2 border-transparent hover:border-slate-300' 
+                                        alt="Profile" 
+                                    />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Mobile Search Bar */}
+                        <div className="md:hidden px-4 pb-3">
+                            <div className="flex items-center bg-[#2e3856] rounded-lg px-3 py-2">
+                                <FaSearch className='text-[#939bb4] text-lg' />
                                 <input
                                     type="text"
-                                    className='bg-transparent outline-none'
-                                    placeholder='Search for fleshcards' />
-                            </div>
-
-                            <div className="flex gap-3 md:gap-5">
-                                <div ref={dropdownRef} className="bg-blue-600 p-2 flex items-center rounded-lg relative">
-                                    <FaPlus onClick={handleDropdownBtn} className='text-xl shadow-xl cursor-pointer' />
-                                    <div
-                                        className={`${isDropdownActive ? 'block' : 'hidden'
-                                            } absolute top-8 -left-52 z-10 bg-[#0a092d] text-slate-200 border-[1px] border-slate-400 p-4 mt-2 rounded-md w-56 flex flex-col gap-3`}
-                                    >
-                                        <NavLink to="/library/sets">Flashcard Sets</NavLink>
-                                        <NavLink to="/studyguide/past-text">Study Guide</NavLink>
-                                        <NavLink to="/practicetest/flesh-card">Practice Test</NavLink>
-                                        <NavLink>Folder</NavLink>
-                                        <NavLink>Class</NavLink>
-                                        <NavLink to="/createpost">Create Post</NavLink>
-                                    </div>
-                                </div>
-                                    <button className='bg-[#FFCD1F] rounded-lg px-0 md:px-4 text-black font-[500]'>
-                                        <span className='hidden md:flex'>Upgrade: Free 7 day-trail</span> 
-                                        {/* <span className='hidden text-[12px]'>Free trail</span>  */}
-                                    </button>
-                                <div className=''>
-                                    <NavLink
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            togglePopup();
-                                        }}>
-                                        <img src={profilePic} className='h-10 w-10 rounded-full bg-white object-cover' alt="" />
-                                    </NavLink>
-                                </div>
+                                    className='w-full bg-transparent outline-none text-white ml-3 placeholder-[#939bb4]'
+                                    placeholder='Search for flashcards'
+                                />
                             </div>
                         </div>
-
-                        <div className="flex gap-5 md:hidden items-center bg-[#2e3856] py-[0.1rem] sm:py-[0.4rem] px-4 mx-5 rounded-lg">
-                            <FaSearch className='text-[#939bb4] text-[30px]' />
-                            <input
-                                type="text"
-                                className='w-[32rem] bg-transparent outline-none'
-                                placeholder='Search for fleshcards' />
-                        </div>
-
                     </div>
                 </div>
             </header>
-            <ProfilePopup show={showProfilePopup} onClose={() => { setShowProfilePopup(false) }} />
+
+            {/* Profile Popup */}
+            <ProfilePopup 
+                show={showProfilePopup} 
+                onClose={() => setShowProfilePopup(false)} 
+            />
         </>
     )
 }

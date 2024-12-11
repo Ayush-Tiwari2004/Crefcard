@@ -1,0 +1,331 @@
+[
+    {
+        "id":"ten",
+        "bookCategory": "Math",
+        "booktype": "Calculas",
+        "bookimg": "/images/textbook1.jpg",
+        "bookname": "calculas: Earlu Transcandantels",
+        "edition": "8th Edition•ISBN: 9781285741550",
+        "bookEdition": "8th Edition",
+        "writer": "James Stewart",
+        "prise": "11,084 solutions",
+        "icon": "verifiedStamp",
+        "chapters": [
+        {
+            "chaptornumber": "1",
+            "chaptorname": "Functions and Models"
+        },
+        {
+            "chaptornumber": "2",
+            "chaptorname": "Limits and derivetives"
+        },
+        {
+            "chaptornumber": "3",
+            "chaptorname": "Thermodynamics"
+        },
+        {
+            "chaptornumber": "4",
+            "chaptorname": "Electromagnetism"
+        },
+        {
+            "chaptornumber": "5",
+            "chaptorname": "Differentiation Rules"
+        },
+        {
+            "chaptornumber": "6",
+            "chaptorname": "Applications of Differentiation"
+        },
+        {
+            "chaptornumber": "7",
+            "chaptorname": "integrals"
+        },
+        {
+            "chaptornumber": "8",
+            "chaptorname": "Applications of Integration"
+        }
+    ],
+        "isbn": "ISBN: 9781285741550"
+    },
+    {
+        "id":"eleven",
+        "bookCategory": "Language",
+        "booktype": "Spanis",
+        "bookimg": "/images/textbook2.jpg",
+        "bookname": "Realidades 2: Practice Workbook 2",
+        "edition": "8th Edition•ISBN: 9781285741550",
+        "bookEdition": "1st Edition",
+        "writer": "Savvas Learning Co",
+        "prise": "11,084 solutions",
+        "icon": "verifiedStamp",
+        "isbn": "ISBN: 9780130360021 Alternate ISBNs",
+        "chapters": [
+        {
+            "chaptornumber": "1",
+            "chaptorname": "Para Empazer"
+        },
+        {
+            "chaptornumber": "2",
+            "chaptorname": "Capitulo 1"
+        },
+        {
+            "chaptornumber": "3",
+            "chaptorname": "Capitulo 2"
+        },
+        {
+            "chaptornumber": "4",
+            "chaptorname": "Capitulo 3"
+        },
+        {
+            "chaptornumber": "5",
+            "chaptorname": "Capitulo 4"
+        },
+        {
+            "chaptornumber": "6",
+            "chaptorname": "Capitulo 5"
+        },
+        {
+            "chaptornumber": "7",
+            "chaptorname": "Capitulo 6"
+        },
+        {
+            "chaptornumber": "8",
+            "chaptorname": "Capitulo 7"
+        }
+    ]
+    },
+    {
+        "id":"eleven",
+        "bookCategory": "Language",
+        "booktype": "Spanis",
+        "bookimg": "/images/textbook2.jpg",
+        "bookname": "Realidades 2: Practice Workbook 2",
+        "edition": "8th Edition•ISBN: 9781285741550",
+        "bookEdition": "1st Edition",
+        "writer": "Savvas Learning Co",
+        "prise": "11,084 solutions",
+        "icon": "verifiedStamp",
+        "isbn": "ISBN: 9780130360021 Alternate ISBNs",
+        "chapters": [
+        {
+            "chaptornumber": "1",
+            "chaptorname": "Para Empazer"
+        },
+        {
+            "chaptornumber": "2",
+            "chaptorname": "Capitulo 1"
+        },
+        {
+            "chaptornumber": "3",
+            "chaptorname": "Capitulo 2"
+        },
+        {
+            "chaptornumber": "4",
+            "chaptorname": "Capitulo 3"
+        },
+        {
+            "chaptornumber": "5",
+            "chaptorname": "Capitulo 4"
+        },
+        {
+            "chaptornumber": "6",
+            "chaptorname": "Capitulo 5"
+        },
+        {
+            "chaptornumber": "7",
+            "chaptorname": "Capitulo 6"
+        },
+        {
+            "chaptornumber": "8",
+            "chaptorname": "Capitulo 7"
+        }
+    ]
+    },
+    {
+        "id":"eleven",
+        "bookCategory": "Language",
+        "booktype": "Spanis",
+        "bookimg": "/images/textbook2.jpg",
+        "bookname": "Realidades 2: Practice Workbook 2",
+        "edition": "8th Edition•ISBN: 9781285741550",
+        "bookEdition": "1st Edition",
+        "writer": "Savvas Learning Co",
+        "prise": "11,084 solutions",
+        "icon": "verifiedStamp",
+        "isbn": "ISBN: 9780130360021 Alternate ISBNs",
+        "chapters": [
+        {
+            "chaptornumber": "1",
+            "chaptorname": "Para Empazer"
+        },
+        {
+            "chaptornumber": "2",
+            "chaptorname": "Capitulo 1"
+        },
+        {
+            "chaptornumber": "3",
+            "chaptorname": "Capitulo 2"
+        },
+        {
+            "chaptornumber": "4",
+            "chaptorname": "Capitulo 3"
+        },
+        {
+            "chaptornumber": "5",
+            "chaptorname": "Capitulo 4"
+        },
+        {
+            "chaptornumber": "6",
+            "chaptorname": "Capitulo 5"
+        },
+        {
+            "chaptornumber": "7",
+            "chaptorname": "Capitulo 6"
+        },
+        {
+            "chaptornumber": "8",
+            "chaptorname": "Capitulo 7"
+        }
+    ]
+    },
+    {
+        "id":"eleven",
+        "bookCategory": "Language",
+        "booktype": "Spanis",
+        "bookimg": "/images/textbook2.jpg",
+        "bookname": "Realidades 2: Practice Workbook 2",
+        "edition": "8th Edition•ISBN: 9781285741550",
+        "bookEdition": "1st Edition",
+        "writer": "Savvas Learning Co",
+        "prise": "11,084 solutions",
+        "icon": "verifiedStamp",
+        "isbn": "ISBN: 9780130360021 Alternate ISBNs",
+        "chapters": [
+        {
+            "chaptornumber": "1",
+            "chaptorname": "Para Empazer"
+        },
+        {
+            "chaptornumber": "2",
+            "chaptorname": "Capitulo 1"
+        },
+        {
+            "chaptornumber": "3",
+            "chaptorname": "Capitulo 2"
+        },
+        {
+            "chaptornumber": "4",
+            "chaptorname": "Capitulo 3"
+        },
+        {
+            "chaptornumber": "5",
+            "chaptorname": "Capitulo 4"
+        },
+        {
+            "chaptornumber": "6",
+            "chaptorname": "Capitulo 5"
+        },
+        {
+            "chaptornumber": "7",
+            "chaptorname": "Capitulo 6"
+        },
+        {
+            "chaptornumber": "8",
+            "chaptorname": "Capitulo 7"
+        }
+    ]
+    },
+    {
+        "id":"eleven",
+        "bookCategory": "Language",
+        "booktype": "Spanis",
+        "bookimg": "/images/textbook2.jpg",
+        "bookname": "Realidades 2: Practice Workbook 2",
+        "edition": "8th Edition•ISBN: 9781285741550",
+        "bookEdition": "1st Edition",
+        "writer": "Savvas Learning Co",
+        "prise": "11,084 solutions",
+        "icon": "verifiedStamp",
+        "isbn": "ISBN: 9780130360021 Alternate ISBNs",
+        "chapters": [
+        {
+            "chaptornumber": "1",
+            "chaptorname": "Para Empazer"
+        },
+        {
+            "chaptornumber": "2",
+            "chaptorname": "Capitulo 1"
+        },
+        {
+            "chaptornumber": "3",
+            "chaptorname": "Capitulo 2"
+        },
+        {
+            "chaptornumber": "4",
+            "chaptorname": "Capitulo 3"
+        },
+        {
+            "chaptornumber": "5",
+            "chaptorname": "Capitulo 4"
+        },
+        {
+            "chaptornumber": "6",
+            "chaptorname": "Capitulo 5"
+        },
+        {
+            "chaptornumber": "7",
+            "chaptorname": "Capitulo 6"
+        },
+        {
+            "chaptornumber": "8",
+            "chaptorname": "Capitulo 7"
+        }
+    ]
+    },
+    {
+        "id":"twelve",
+        "bookCategory": "Math",
+        "booktype": "Calculas",
+        "bookimg": "/images/textbook3.jpg",
+        "bookname": "Calculus: Early Transcendentals",
+        "edition": "8th Edition•ISBN: 9781285741550",
+        "bookEdition": "9th Edition",
+        "writer": "Daniel K. Clegg, James Stewart, Saleem Watson",
+        "prise": "11,084 solutions",
+        "icon": "verifiedStamp",
+        "isbn": "ISBN: 9781337613927",
+        "chapters": [
+        {
+            "chaptornumber": "1",
+            "chaptorname": "Functions and Models"
+        },
+        {
+            "chaptornumber": "2",
+            "chaptorname": "Limits and Derivatives"
+        },
+        {
+            "chaptornumber": "3",
+            "chaptorname": "Differentiation Rules"
+        },
+        {
+            "chaptornumber": "4",
+            "chaptorname": "Applications of Differentiation"
+        },
+        {
+            "chaptornumber": "5",
+            "chaptorname": "Parametric Equations and Polar Coordinates"
+        },
+        {
+            "chaptornumber": "6",
+            "chaptorname": "Sequences, Series and Power Series"
+        },
+        {
+            "chaptornumber": "7",
+            "chaptorname": "Vectors and the Geometry of Space"
+        },
+        {
+            "chaptornumber": "8",
+            "chaptorname": "Multiple Integrals"
+        }
+    ]
+    }
+]

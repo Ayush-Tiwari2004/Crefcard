@@ -67,8 +67,10 @@
     },
     {
         "id":"seven",
-        "title": "Language",
-        "longtext": "O ouro do século 21 Cério, gadolínio, lutécio, promécio e érbio; sumário, térbio e disprósio; hólmio, túlio e itérbio. Essa lista de nomes esquisitos e pouco conhecidos pode parecer a escalação de um time de futebol, que ainda teria no banco de reservas lantânio, neodímio, praseodímio, európio, escândio e ítrio."
+        "title": "Python",
+        "bookCategory": "Python",
+        "booktype": "Application",
+        "longtext": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use."
     },
     {
         "id":"eight",
@@ -80,147 +82,6 @@
         "id":"nine",
         "title": "5-1",
         "longtext": "O metrô de um município oferece dois tipos de tíquetes com colorações diferentes, azul e vermelha, sendo vendidos em cartelas, cada qual com nove tíquetes da mesma cor e mesmo valor unitário. Duas cartelas de tíquetes azuis e uma cartela de tíquetes vermelhos são vendidas."
-    },
-    {
-        "id":"ten",
-        "bookCategory": "Math",
-        "booktype": "Calculas",
-        "bookimg": "/images/textbook1.jpg",
-        "bookname": "calculas: Earlu Transcandantels",
-        "edition": "8th Edition•ISBN: 9781285741550",
-        "bookEdition": "8th Edition",
-        "writer": "James Stewart",
-        "prise": "11,084 solutions",
-        "icon": "verifiedStamp",
-        "chapters": [
-        {
-            "chaptornumber": "1",
-            "chaptorname": "Functions and Models"
-        },
-        {
-            "chaptornumber": "2",
-            "chaptorname": "Limits and derivetives"
-        },
-        {
-            "chaptornumber": "3",
-            "chaptorname": "Thermodynamics"
-        },
-        {
-            "chaptornumber": "4",
-            "chaptorname": "Electromagnetism"
-        },
-        {
-            "chaptornumber": "5",
-            "chaptorname": "Differentiation Rules"
-        },
-        {
-            "chaptornumber": "6",
-            "chaptorname": "Applications of Differentiation"
-        },
-        {
-            "chaptornumber": "7",
-            "chaptorname": "integrals"
-        },
-        {
-            "chaptornumber": "8",
-            "chaptorname": "Applications of Integration"
-        }
-    ],
-        "isbn": "ISBN: 9781285741550"
-    },
-    {
-        "id":"eleven",
-        "bookCategory": "Language",
-        "booktype": "Spanis",
-        "bookimg": "/images/textbook2.jpg",
-        "bookname": "Realidades 2: Practice Workbook 2",
-        "edition": "8th Edition•ISBN: 9781285741550",
-        "bookEdition": "1st Edition",
-        "writer": "Savvas Learning Co",
-        "prise": "11,084 solutions",
-        "icon": "verifiedStamp",
-        "isbn": "ISBN: 9780130360021 Alternate ISBNs",
-        "chapters": [
-        {
-            "chaptornumber": "1",
-            "chaptorname": "Para Empazer"
-        },
-        {
-            "chaptornumber": "2",
-            "chaptorname": "Capitulo 1"
-        },
-        {
-            "chaptornumber": "3",
-            "chaptorname": "Capitulo 2"
-        },
-        {
-            "chaptornumber": "4",
-            "chaptorname": "Capitulo 3"
-        },
-        {
-            "chaptornumber": "5",
-            "chaptorname": "Capitulo 4"
-        },
-        {
-            "chaptornumber": "6",
-            "chaptorname": "Capitulo 5"
-        },
-        {
-            "chaptornumber": "7",
-            "chaptorname": "Capitulo 6"
-        },
-        {
-            "chaptornumber": "8",
-            "chaptorname": "Capitulo 7"
-        }
-    ]
-    },
-    {
-        "id":"twelve",
-        "bookCategory": "Math",
-        "booktype": "Calculas",
-        "bookimg": "/images/textbook3.jpg",
-        "bookname": "Calculus: Early Transcendentals",
-        "edition": "8th Edition•ISBN: 9781285741550",
-        "bookEdition": "9th Edition",
-        "writer": "Daniel K. Clegg, James Stewart, Saleem Watson",
-        "prise": "11,084 solutions",
-        "icon": "verifiedStamp",
-        "isbn": "ISBN: 9781337613927",
-        "chapters": [
-        {
-            "chaptornumber": "1",
-            "chaptorname": "Functions and Models"
-        },
-        {
-            "chaptornumber": "2",
-            "chaptorname": "Limits and Derivatives"
-        },
-        {
-            "chaptornumber": "3",
-            "chaptorname": "Differentiation Rules"
-        },
-        {
-            "chaptornumber": "4",
-            "chaptorname": "Applications of Differentiation"
-        },
-        {
-            "chaptornumber": "5",
-            "chaptorname": "Parametric Equations and Polar Coordinates"
-        },
-        {
-            "chaptornumber": "6",
-            "chaptorname": "Sequences, Series and Power Series"
-        },
-        {
-            "chaptornumber": "7",
-            "chaptorname": "Vectors and the Geometry of Space"
-        },
-        {
-            "chaptornumber": "8",
-            "chaptorname": "Multiple Integrals"
-        }
-    ]
     },
     {
         "id":"thirteen",

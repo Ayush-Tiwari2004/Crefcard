@@ -12,7 +12,7 @@ export const Sidebar = () => {
   const handleClose = () => setShowPopup(false);
   return (
     <>
-      <div className="fixed z-20 md:sticky top-24 md:top-16 h-[calc(100vh-4rem)] overflow-y-scroll bg-[#0a092d] w-[250px] text-white">
+      <div className="fixed z-20 xl:sticky top-24 md:top-[72px] h-[calc(100vh-4rem)] overflow-y-scroll bg-[#0a092d] md:w-[222px] w-[250px] text-white">
         <div className="sidebar flex flex-col gap-3 px-5 py-2 mt-5 md:mt-0">
           <NavLink to="/profile" className="sidelink"><GoHome className="text-[20px]" />Home</NavLink>
           <NavLink to="/library" className="sidelink"><VscFiles className="text-[20px]"/> Your Library</NavLink>

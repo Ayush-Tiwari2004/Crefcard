@@ -35,8 +35,8 @@ export const BookDetails = () => {
                  <span className="text-slate-400"> / </span>
                  <NavLink>{profile.booktype}</NavLink>
              </div>
-             <div className="flex gap-5 py-5">
-                 <img src={profile.bookimg} className="h-[10%] w-[10%] rounded-md" alt={profile.bookname} />
+             <div className="flex flex-col sm:flex-row gap-3 sm:gap-5 py-3 sm:py-5">
+                 <img src={profile.bookimg} className="w-[50%] sm:h-[10%] sm:w-[10%] rounded-md mx-auto sm:mx-0" alt={profile.bookname} />
                  <div className="flex flex-col gap-7 mt-2">
                      <div className="flex flex-col gap-1">
                          <h5>{profile.bookname}</h5>
