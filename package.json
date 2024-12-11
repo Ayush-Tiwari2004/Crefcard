@@ -4,9 +4,9 @@
   "description": "This is my first full stack project",
   "main": "app.js",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon ./Server/app.js",
-    "build": "NODE_ENV=production npm install && npm install --prefix Client && npm run build --prefix Client",
-    "start": "NODE_ENV=production node ./Server/app.js"
+    "dev": "nodemon ./Server/app.js",
+    "build": "npm install && npm install --prefix Client && npm run build --prefix Client",
+    "start": "node ./Server/app.js"
   },
   "keywords": [],
   "author": "Ayush Tiwari",

@@ -11,11 +11,9 @@ const postRouter = require('./routes/postrouts');
 const adminRouter = require('./routes/adminroutes');
 const profilePicRouter = require('./routes/profilepic');
 
-// CORS options based on environment
+// CORS options
 const corsOptions = {
-    origin: process.env.NODE_ENV === 'production' 
-        ? "https://crefcard.onrender.com"
-        : "http://localhost:5000",
+    origin: "https://crefcard.onrender.com",
     methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
     credentials: true,
 };
@@ -34,16 +32,6 @@ app.use('/api/auth', authRouter);
 app.use('/api/posts', postRouter); // Unique route for posts
 app.use('/api/admin', adminRouter); // Unique route for admin
 app.use('/api/profile', profilePicRouter); // Unique route for profile picture
-
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ 
-        message: process.env.NODE_ENV === 'production' 
-            ? 'Internal Server Error' 
-            : err.message 
-    });
-});
 
 // Health check route
 app.get("/", (req, res) => {
