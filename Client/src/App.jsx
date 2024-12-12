@@ -146,7 +146,7 @@ const App = () => {
             { path: "", element: (
               <>
               <BookDetails />
-              <PopularQuestions />
+              <PopularQuestions /> // new data
               </>
             )
                },
