@@ -11,12 +11,22 @@ const postRouter = require('./routes/postrouts');
 const adminRouter = require('./routes/adminroutes');
 const profilePicRouter = require('./routes/profilepic');
 
+// origin: "https://crefcard.onrender.com",
 // CORS options
+const allowedOrigins = ['http://localhost:5173', 'https://crefcard.onrender.com'];
 const corsOptions = {
-    origin: "https://crefcard.onrender.com",
-    methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 };
+// app.use(cors(corsOptions));
+
 
 // Middleware
 app.use(express.json());

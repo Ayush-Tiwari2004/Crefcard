@@ -30,16 +30,20 @@ export const Login = () =>{
             return handleError ("email and password required");
         }
         try{
-            const url = `${import.meta.env.VITE_BACKEND_API_URL}/api/auth/login`;
-            console.log("API URL:", url);
-            
-            const response = await fetch(url, {
+            const baseUrl = import.meta.env.MODE === 'production' 
+                ? 'import.meta.env.VITE_BACKEND_API_URL'
+                : 'http://localhost:5000';
+                
+            const response = await fetch(`${baseUrl}/api/auth/login`, {
                 method: "POST",
                 headers: {
-                    'Content-Type' : 'application/json'
+                    'Content-Type': 'application/json',
+                    'Origin': window.location.origin
                 },
+                credentials: 'include',
                 body: JSON.stringify(login)
-            })
+            });
+            
             const result = await response.json();
             const {success, message, jwtToken, username, error, userId, profilepic} = result;
             if(success){
@@ -59,6 +63,7 @@ export const Login = () =>{
         }
         catch(err){
             handleError("Something went wrong while logging in");
+            console.error("Login error:", err);
         }
     }
 
