@@ -66,26 +66,127 @@
         "height": "36px"
     },
     {
-        "id":"sevensflkjslkfjkej",
+        "id":"kslf4ce5e5flkjslkfjkej",
         "title": "Python",
-        "bookCategory": "Python",
         "booktype": "Application",
+        "solutions": "Solution",
         "bookcontant": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-        "longtext": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use."
+        "longtext": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
+        "yourQuestions":[
+            {
+                "writeYourQuestion": "1.) What is the difference between let, var, and const in JavaScript?"
+            },
+            {
+                "writeYourQuestion": "2.) What are MongoDB collections?"
+            },
+            {
+                "writeYourQuestion": "3.) What is React and why is it popular?"
+            },
+            {
+                "writeYourQuestion": "4.) What is pagination, and why is it important in web development?"
+            },
+            {
+                "writeYourQuestion": "5.) What is the difference between synchronous and asynchronous programming?"
+            },
+            {
+                "writeYourQuestion": "6.) What is the difference between SQL and NoSQL databases?"
+            }
+        ],
+        "yourAnswer": [
+            {
+                "writeYourAnswer" : "var: Function-scoped and can be redeclared. Its value can be updated, and it is hoisted. let: Block-scoped, cannot be redeclared, but its value can be updated. It is also hoisted but not a initialized.const: Block-scoped, cannot be redeclared, and its value cannot be updated. It is used for constants."
+            },
+            {
+                "writeYourAnswer" : " In MongoDB, a collection is analogous to a table in relational databases. It is a grouping of MongoDB documents. Documents within a collection can have different fields, but they are usually related to a specific domain. For example, a 'users' collection might store user data."
+            },
+            {
+                "writeYourAnswer" : " React is a JavaScript library for building user interfaces, developed by Facebook. It is popular because."
+            },
+            {
+                "writeYourAnswer" : "Pagination is a technique used to divide large datasets into smaller, more manageable chunks (pages). It improves."
+            },
+            {
+                "writeYourAnswer" : "Tasks are executed sequentially, one after another.A task must complete before the next task starts.It can block the execution of other operations.Example: Reading a file line by line in a synchronous manner."
+            },
+            {
+                "writeYourAnswer" : "var: Function-scoped and can be redeclared. Its value can be updated, and it is hoisted. let: Block-scoped, cannot be redeclared, but its value can be updated. It is also hoisted but not a initialized.const: Block-scoped, cannot be redeclared, and its value cannot be updated. It is used for constants."
+            }
+        ]
     },
     {
-        "id":"eight",
-        "title": "5-1",
-        "bookCategory": "History",
-        "booktype": "Reaserch",
-        "longtext": "O fogão por indução funciona kljadfljhdfjhaskjdfhkfdhkahfdkhaksdfhkasdhfkjahsdkfjhkasjdfh a partir do surgimento de uma corrente elétrica induzida no fundo da panela, com consequente transformação de energia elétrica em calor por efeito Joule. A principal vantagem desses fogões é a eficiência energética, que é substancialmente maior que a dos fogões convencionais. A corrente elétrica mencionada é induzida por:"
-
+        "id":"sf4s7sfff7gd4r86g4d6g4rg",
+        "title": "History",
+        "booktype": "Places",
+        "solutions": "Solution",
+        "bookcontant": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+        "longtext": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
+        "yourQuestions":[
+            {
+                "writeYourQuestion": "1.) सिंधु घाटी सभ्यता के मुख्य नगर कौन-कौन से थे?"
+            },
+            {
+                "writeYourQuestion": "2.) अशोक ने कौन से धर्म का प्रचार किया और क्यों?"
+            },
+            {
+                "writeYourQuestion": "3.) भारतीय स्वतंत्रता संग्राम में जलियांवाला बाग हत्याकांड का क्या महत्व था?"
+            },
+            {
+                "writeYourQuestion": "6.) प्रथम विश्व युद्ध कब और क्यों शुरू हुआ?"
+                
+            }
+        ],
+        "yourAnswer": [
+            {
+                "writeYourAnswer": "सिंधु घाटी सभ्यता के मुख्य नगर हड़प्पा, मोहनजोदड़ो, लोथल, चन्हुदड़ो और कालीबंगा थे।"
+            },
+            {
+                "writeYourAnswer": "अशोक ने बौद्ध धर्म का प्रचार किया क्योंकि कलिंग युद्ध के बाद वे अहिंसा और शांति के मार्ग को अपनाना चाहते थे।"
+            },
+            {
+                "writeYourAnswer": "जलियांवाला बाग हत्याकांड भारतीय स्वतंत्रता संग्राम का एक अहम मोड़ था, जिसने पूरे देश को ब्रिटिश शासन के खिलाफ एकजुट कर दिया।"
+            },
+            {
+                "writeYourAnswer": "प्रथम विश्व युद्ध 1914 में शुरू हुआ और इसका मुख्य कारण यूरोपीय देशों के बीच साम्राज्यवादी प्रतिस्पर्धा और सैन्य गठजोड़ था।"
+            }
+        ]
     },
     {
-        "id":"nine",
-        "title": "5-1",
-        "longtext": "O metrô de um município oferece dois tipos de tíquetes com colorações diferentes, azul e vermelha, sendo vendidos em cartelas, cada qual com nove tíquetes da mesma cor e mesmo valor unitário. Duas cartelas de tíquetes azuis e uma cartela de tíquetes vermelhos são vendidas."
+        "id":"sevensflkjslkfjkej",
+        "title": "Hindi",
+        "booktype": "Application",
+        "solutions": "Solution",
+        "bookcontant": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+        "longtext": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
+        "yourQuestions":[
+            {
+                "writeYourQuestion": "1.) हिंदी साहित्य के पितामह किसे कहा जाता है?"
+            },
+            {
+                "writeYourQuestion": "2.) रामचरितमानस की रचना किसने की थी?"
+            },
+            {
+                "writeYourQuestion": "3.) प्रेमचंद का मूल नाम क्या था?"
+            },
+            {
+                "writeYourQuestion": "4.) महादेवी वर्मा किस साहित्यिक युग से संबंधित थीं?"
+            }
+        ],
+        "yourAnswer": [
+            {
+                "writeYourAnswer": "हिंदी साहित्य के पितामह भारतेंदु हरिश्चंद्र को कहा जाता है।"
+            },
+            {
+               "writeYourAnswer": "रामचरितमानस की रचना गोस्वामी तुलसीदास ने की थी।"
+            },
+            {
+                "writeYourAnswer": "प्रेमचंद का मूल नाम धनपत राय श्रीवास्तव था।"
+            },
+            {
+                "writeYourAnswer": "महादेवी वर्मा छायावादी युग से संबंधित थीं।"
+            }
+        ]
     },
+    
     {
         "id":"thirteen",
         "userImg": "/images/profilimg.png",

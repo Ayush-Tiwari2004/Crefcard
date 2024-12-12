@@ -76,7 +76,7 @@ export const ProfileCard = (props) => {
     } = props.data;
 
     return (
-        <NavLink to={`/profile/${id}`}>
+        <NavLink to={`/profile/popularQuestions/${id}`}>
             <div className="h-44 p-4 border-b-2 border-b-[#0a092d] hover:border-b-slate-200 flex flex-col justify-between rounded-lg bg-[#2e3856] relative text-white">
                 <div className="flex flex-col overflow-y-scroll overflow-x-hidden gap-3">
                     <h6 className="text-sm sticky top-0 pb-1 w-full bg-[#2e3856] text-white">{title}</h6>

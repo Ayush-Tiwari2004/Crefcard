@@ -11,7 +11,7 @@ import Starthere from './ProfilePage/Librarypage/Library';
 import { StudyGuide } from './ProfilePage/StudyGuide/StudyGuide';
 import { PracticeTest } from './ProfilePage/PracticeTest/PracticeTest';
 import { ProfileFleshCards } from './ProfilePage/Fleshcard/ProfileFleshCards';
-import { getBooksData } from './ProfilePage/Profile/BookDetails/GetBooksData';
+import { getBooksData, getLanguageQuestionsData } from './ProfilePage/Profile/BookDetails/GetBooksData';
 import { BookDetails } from './ProfilePage/Profile/BookDetails/BookDetails';
 import { LibraryLayout } from './ProfilePage/Librarypage/LibraryLayout';
 import FleshCardSets from './ProfilePage/Librarypage/FleshCardSets';
@@ -35,7 +35,7 @@ import AdminHome from './Admin/AdminHome';
 import AdminLayout from './Admin/AdminLayout';
 import UpdateUserData from './Admin/UpdateUserData';
 import { AdminLogin } from './Admin/AdminLogin';
-import { DataLayout } from './ProfilePage/Profile/BookDetails/DataLayout';
+// import { DataLayout } from './ProfilePage/Profile/BookDetails/DataLayout';
 import { PopularQuestions } from './ProfilePage/Profile/BookDetails/PopularQuestions';
 
 // RefreshHandler Component
@@ -140,17 +140,13 @@ const App = () => {
         { path: "/fleshcard", element: PrivateRoute(<ProfileFleshCards />) },
         {
           path: "/profile/:id",
-          element: PrivateRoute(<DataLayout />),
+          element: PrivateRoute(<BookDetails />),
           loader: getBooksData,
-          children: [
-            { path: "", element: (
-              <>
-              <BookDetails />
-              <PopularQuestions /> // new data
-              </>
-            )
-               },
-          ]
+        },
+        {
+          path: "/profile/popularQuestions/:id",
+          element: PrivateRoute(<PopularQuestions />),
+          loader: getLanguageQuestionsData,
         }
       ]
     },
