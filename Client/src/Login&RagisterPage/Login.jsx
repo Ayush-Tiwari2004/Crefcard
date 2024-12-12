@@ -27,18 +27,16 @@ export const Login = () =>{
 
         const {email, password} = login;
         if(!email || !password){
-            return handleError ("email and password required");
+            return handleError("email and password required");
         }
+        
         try{
-            const baseUrl = import.meta.env.MODE === 'production' 
-                ? 'import.meta.env.VITE_BACKEND_API_URL'
-                : 'http://localhost:5000';
+            const API_URL = import.meta.env.VITE_BACKEND_API_URL;
                 
-            const response = await fetch(`${baseUrl}/api/auth/login`, {
+            const response = await fetch(`${API_URL}/api/auth/login`, {
                 method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Origin': window.location.origin
+                    'Content-Type': 'application/json'
                 },
                 credentials: 'include',
                 body: JSON.stringify(login)
@@ -46,8 +44,9 @@ export const Login = () =>{
             
             const result = await response.json();
             const {success, message, jwtToken, username, error, userId, profilepic} = result;
+            
             if(success){
-                handleSuccess (message);
+                handleSuccess(message);
                 localStorage.setItem('token', jwtToken);
                 localStorage.setItem('loggedInUser', username);
                 localStorage.setItem('loggedInUserEmail', email);
@@ -55,15 +54,15 @@ export const Login = () =>{
                 localStorage.setItem('profilepic', profilepic);
                 setTimeout(() => {navigate('/profile');}, 1000);
             } else if(error){
-                const details = error?.details[0].message;
-                handleError(details);
-            } else if(!success){
+                const details = error?.details[0]?.message;
+                handleError(details || message);
+            } else {
                 handleError(message);
             }
         }
         catch(err){
-            handleError("Something went wrong while logging in");
             console.error("Login error:", err);
+            handleError("Something went wrong while logging in");
         }
     }
 
