@@ -13,7 +13,9 @@ export const StudyGuide = () => {
                             <h4 className="text-sm md:text-base">Study Guides</h4>
                         </div>
                         <div className="fleshicons">
+                            <NavLink to="/profile">
                             <RxCross1 />
+                            </NavLink>
                         </div>
                     </div>
                 </div>

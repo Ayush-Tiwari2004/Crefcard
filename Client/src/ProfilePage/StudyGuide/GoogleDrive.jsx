@@ -1,5 +1,4 @@
 import React from 'react'
-import { MdUpload } from 'react-icons/md'
 
 const GoogleDrive = () => {
   return (

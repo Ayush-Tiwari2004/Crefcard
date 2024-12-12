@@ -35,6 +35,8 @@ import AdminHome from './Admin/AdminHome';
 import AdminLayout from './Admin/AdminLayout';
 import UpdateUserData from './Admin/UpdateUserData';
 import { AdminLogin } from './Admin/AdminLogin';
+import { DataLayout } from './ProfilePage/Profile/BookDetails/DataLayout';
+import { PopularQuestions } from './ProfilePage/Profile/BookDetails/PopularQuestions';
 
 // RefreshHandler Component
 const RefreshHandler = ({ setIsAuthenticated }) => {
@@ -138,8 +140,17 @@ const App = () => {
         { path: "/fleshcard", element: PrivateRoute(<ProfileFleshCards />) },
         {
           path: "/profile/:id",
-          element: PrivateRoute(<BookDetails />),
+          element: PrivateRoute(<DataLayout />),
           loader: getBooksData,
+          children: [
+            { path: "", element: (
+              <>
+              <BookDetails />
+              <PopularQuestions />
+              </>
+            )
+               },
+          ]
         }
       ]
     },
