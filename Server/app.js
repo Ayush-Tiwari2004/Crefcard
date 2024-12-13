@@ -1,30 +1,17 @@
 const express = require('express');
-const dotenv = require('dotenv');
-const path = require('path');
-
-// Load environment variables based on NODE_ENV
-const envFile = process.env.NODE_ENV === 'production' 
-    ? '.env.production'
-    : '.env.development';
-
-dotenv.config({ path: path.resolve(__dirname, `../${envFile}`) });
-
-// Initialize express
 const app = express();
-const _dirname = path.resolve();
-
-// Database connection
-const connectDB = require('./config/db');
-connectDB();
-
+require('dotenv').config();
+require('./config/db');
 const cors = require('cors');
-
+const path = require('path');
+const _dirname = path.resolve();
 // Import routers
 const authRouter = require('./routes/authroutes');
 const postRouter = require('./routes/postrouts');
 const adminRouter = require('./routes/adminroutes');
 const profilePicRouter = require('./routes/profilepic');
 
+// origin: "https://crefcard.onrender.com",
 // CORS options
 const allowedOrigins = ['http://localhost:5173', 'https://crefcard.onrender.com'];
 const corsOptions = {
@@ -38,6 +25,8 @@ const corsOptions = {
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 };
+// app.use(cors(corsOptions));
+
 
 // Middleware
 app.use(express.json());
@@ -45,14 +34,14 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 
 // Static file serving
-app.use('/images', express.static(path.join(_dirname, 'public', 'images'))); 
-app.use(express.static(path.join(_dirname, 'Client', 'dist'))); 
+app.use('/images', express.static(path.join(_dirname, 'public', 'images'))); // For images
+app.use(express.static(path.join(_dirname, 'Client', 'dist'))); // For React build files
 
 // API Routes
 app.use('/api/auth', authRouter);
-app.use('/api/posts', postRouter);
-app.use('/api/admin', adminRouter);
-app.use('/api/profile', profilePicRouter);
+app.use('/api/posts', postRouter); // Unique route for posts
+app.use('/api/admin', adminRouter); // Unique route for admin
+app.use('/api/profile', profilePicRouter); // Unique route for profile picture
 
 // Health check route
 app.get("/", (req, res) => {
@@ -64,7 +53,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(_dirname, 'Client', 'dist', 'index.html'));
 });
 
-// Start the server
+// Start the servers
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
