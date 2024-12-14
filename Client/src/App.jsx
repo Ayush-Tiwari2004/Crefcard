@@ -38,7 +38,16 @@ import { AdminLogin } from './Admin/AdminLogin';
 // import { DataLayout } from './ProfilePage/Profile/BookDetails/DataLayout';
 import { PopularQuestions } from './ProfilePage/Profile/BookDetails/PopularQuestions';
 
-// RefreshHandler Component
+// Custom Authentication Hook
+const useAuth = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return !!localStorage.getItem('token');
+  });
+  
+  return { isAuthenticated, setIsAuthenticated };
+};
+
+// Updated RefreshHandler Component
 const RefreshHandler = ({ setIsAuthenticated }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -46,27 +55,31 @@ const RefreshHandler = ({ setIsAuthenticated }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     const isAdmin = localStorage.getItem('isAdmin');
+    
     if (token) {
       setIsAuthenticated(true);
+      // Only redirect from auth pages
       if (['/', '/login', '/register'].includes(location.pathname)) {
         if(isAdmin) {
-          navigate('/adminDashboard', {replace: true})
-        }else{
+          navigate('/adminDashboard', {replace: true});
+        } else {
           navigate('/profile', { replace: true });
         }
       }
     } else {
       setIsAuthenticated(false);
-      if (location.pathname.startsWith('/profile')) {
+      // Check for protected routes
+      const protectedPaths = ['/profile', '/studyguide', '/practicetest', '/library', '/adminDashboard'];
+      if (protectedPaths.some(path => location.pathname.startsWith(path))) {
         navigate('/', { replace: true });
       }
     }
-  }, [location, navigate, setIsAuthenticated]);
+  }, [location.pathname]);
 
   return null;
 };
 
-// Updated AppLayout and ProfileLayout to include RefreshHandler
+// Layout Components
 const AppLayoutWithAuth = ({ setIsAuthenticated, children }) => (
   <>
     <RefreshHandler setIsAuthenticated={setIsAuthenticated} />
@@ -81,21 +94,30 @@ const ProfileLayoutWithAuth = ({ setIsAuthenticated, children }) => (
   </>
 );
 
+// Main App Component
 const App = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const { isAuthenticated, setIsAuthenticated } = useAuth();
 
-  const PrivateRoute = (element) => (isAuthenticated ? element : <Navigate to="/" />);
-  const AuthenticatedRoute = (element) => (!isAuthenticated ? element : <Navigate to="/profile" />);
-  const PrivateAdminRoute = (element) => {
-    const isAdmin = localStorage.getItem('isAdmin'); // उपयोगकर्ता के admin होने की पुष्टि करें
-    return isAuthenticated && isAdmin ? element : <Navigate to="/profile" />;
+  // Route Guards
+  const PrivateRoute = (element) => {
+    return isAuthenticated ? element : <Navigate to="/" />;
   };
-  
+
+  const AuthenticatedRoute = (element) => {
+    return !isAuthenticated ? element : <Navigate to="/profile" />;
+  };
+
+  const PrivateAdminRoute = (element) => {
+    const isAdmin = localStorage.getItem('isAdmin');
+    return isAuthenticated && isAdmin ? element : <Navigate to="/" />;
+  };
+
   const AuthenticatedAdminRoute = (element) => {
-    const isAdmin = localStorage.getItem('isAdmin'); // उपयोगकर्ता के admin होने की पुष्टि करें
+    const isAdmin = localStorage.getItem('isAdmin');
     return !isAuthenticated || !isAdmin ? element : <Navigate to="/adminDashboard" />;
   };
 
+  // Router Configuration
   const router = createBrowserRouter([
     {
       path: "/",
@@ -114,13 +136,18 @@ const App = () => {
     {
       element: <ProfileLayoutWithAuth setIsAuthenticated={setIsAuthenticated} />,
       children: [
-        { path: "/profile", element: PrivateRoute(<Profile />) },
-        { path: "/createpost", element: PrivateRoute(<Createpost />) },
+        { 
+          path: "/profile", 
+          element: PrivateRoute(<Profile />)
+        },
+        { 
+          path: "/createpost", 
+          element: PrivateRoute(<Createpost />) 
+        },
         {
           path: "/library",
           element: PrivateRoute(<Starthere />),
           children: [
-            // Redirect from /library to /library/sets
             { index: true, element: <Navigate to="sets" replace /> },
             {
               path: "sets",
@@ -137,7 +164,10 @@ const App = () => {
             }
           ]
         },
-        { path: "/fleshcard", element: PrivateRoute(<ProfileFleshCards />) },
+        { 
+          path: "/fleshcard", 
+          element: PrivateRoute(<ProfileFleshCards />) 
+        },
         {
           path: "/profile/:id",
           element: PrivateRoute(<BookDetails />),
@@ -150,32 +180,33 @@ const App = () => {
         }
       ]
     },
-    { 
-      path: "/studyguide", 
+    {
+      path: "/studyguide",
       element: PrivateRoute(<StudyGuide />),
-      children:[
-        {index: true, element: <Navigate to="past-text" replace/> },
+      children: [
+        { index: true, element: <Navigate to="past-text" replace /> },
         {
-          path: "past-text", 
-          element: <StudyLayout  />,
+          path: "past-text",
+          element: <StudyLayout />,
           errorElement: <ErrorPage />,
-          children:[
+          children: [
             { path: "", element: <PastText /> },
             { path: "upload-files", element: <UploadFiles /> },
             { path: "google-drive", element: <GoogleDrive /> },
           ]
         }
-      ] 
+      ]
     },
-    { path: "/practicetest", 
+    {
+      path: "/practicetest",
       element: PrivateRoute(<PracticeTest />),
-      children:[
-        {index: true, element: <Navigate to="flesh-card" replace />},
+      children: [
+        { index: true, element: <Navigate to="flesh-card" replace /> },
         {
-          path: "flesh-card", 
-          element: <StudyLayout  />,
+          path: "flesh-card",
+          element: <StudyLayout />,
           errorElement: <ErrorPage />,
-          children:[
+          children: [
             { path: "", element: <PracticeFleshCards /> },
             { path: "past-text", element: <PastText /> },
             { path: "upload-files", element: <UploadFiles /> },
@@ -190,27 +221,23 @@ const App = () => {
     },
     {
       path: "/adminDashboard",
-      element:PrivateAdminRoute(<Admin />),
+      element: PrivateAdminRoute(<Admin />),
       children: [
-        {index: true, element: <Navigate to="home" replace/>},
+        { index: true, element: <Navigate to="home" replace /> },
         {
-          path: "home", 
+          path: "home",
           element: <AdminLayout />,
           errorElement: <ErrorPage />,
           children: [
-            {path: "", element: <AdminHome /> },
-            {path: "update/:id", element: <UpdateUserData /> }
+            { path: "", element: <AdminHome /> },
+            { path: "update/:id", element: <UpdateUserData /> }
           ]
         }
       ]
     }
   ]);
 
-  return(
-    <>
-    <RouterProvider router={router} />
-    </>
-  ) 
+  return <RouterProvider router={router} />;
 };
 
 export default App;
