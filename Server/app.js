@@ -1,15 +1,27 @@
 const express = require('express');
-const app = express();
-require('dotenv').config();
-require('./config/db');
-const cors = require('cors');
+const dotenv = require('dotenv');
 const path = require('path');
+
+// Load environment variables first
+const envFile = process.env.NODE_ENV === 'production' 
+    ? '.env.production'
+    : '.env.development';
+
+dotenv.config({ path: path.resolve(__dirname, `../${envFile}`) });
+
+// Then require other modules
+const connectDB = require('./config/db');
+const app = express();
+const cors = require('cors');
 const _dirname = path.resolve();
 // Import routers
 const authRouter = require('./routes/authroutes');
 const postRouter = require('./routes/postrouts');
 const adminRouter = require('./routes/adminroutes');
 const profilePicRouter = require('./routes/profilepic');
+
+// Connect to database
+connectDB();
 
 // origin: "https://crefcard.onrender.com",
 // CORS options

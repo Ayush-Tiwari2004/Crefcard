@@ -1,14 +1,18 @@
 const userModel = require('../models/user')
+const { handleCloudinaryUpload } = require('../config/multerconfig')
 
 const uploadProfilePic =  async (req, res) => {
     try {
         const userId = req.body.userId;
-        const profilepic = `https://crefcard.onrender.com/images/${req.file.filename}`;
+        const localFilePath = req.file.path;
+
+        // Upload to Cloudinary
+        const cloudinaryUrl = await handleCloudinaryUpload(localFilePath);
         
         // Update user's profile picture in DB
         const updatedUser = await userModel.findByIdAndUpdate(
             userId, 
-            { profilepic }, 
+            { profilepic: cloudinaryUrl }, 
             { new: true }
         );
 

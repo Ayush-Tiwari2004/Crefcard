@@ -4,9 +4,9 @@
   "description": "This is my first full stack project",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon ./Server/app.js",
+    "dev": "set NODE_ENV=development&& nodemon Server/app.js",
     "build": "npm install && npm install --prefix Client && npm run build --prefix Client",
-    "start": "node ./Server/app.js"
+    "start": "set NODE_ENV=production&& node Server/app.js"
   },
   "keywords": [],
   "author": "Ayush Tiwari",
@@ -24,7 +24,7 @@
     "mongoose": "^8.8.0",
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
-    "nodemailer": "^6.9.16"
+    "nodemailer": "^6.9.16" 
   },
   "devDependencies": {
     "nodemon": "^3.0.0"
