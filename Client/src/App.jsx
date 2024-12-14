@@ -32,7 +32,6 @@ import PracticeFleshCards from './ProfilePage/PracticeTest/PracticeFleshCards';
 import Createpost from './ProfilePage/CreatePost/Createpost';
 import { Admin } from './Admin/Admin';
 import AdminHome from './Admin/AdminHome';
-import AdminLayout from './Admin/AdminLayout';
 import UpdateUserData from './Admin/UpdateUserData';
 import { AdminLogin } from './Admin/AdminLogin';
 // import { DataLayout } from './ProfilePage/Profile/BookDetails/DataLayout';
@@ -54,27 +53,28 @@ const RefreshHandler = ({ setIsAuthenticated }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    const isAdmin = localStorage.getItem('isAdmin');
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
     
     if (token) {
       setIsAuthenticated(true);
-      // Only redirect from auth pages
-      if (['/', '/login', '/register'].includes(location.pathname)) {
-        if(isAdmin) {
-          navigate('/adminDashboard', {replace: true});
+      
+      // Admin और normal user के लिए अलग-अलग रीडायरेक्शन
+      if (['/', '/login', '/register', '/admin'].includes(location.pathname)) {
+        if (isAdmin) {
+          navigate('/adminDashboard', { replace: true });
         } else {
           navigate('/profile', { replace: true });
         }
       }
     } else {
       setIsAuthenticated(false);
-      // Check for protected routes
+      // Protected routes check
       const protectedPaths = ['/profile', '/studyguide', '/practicetest', '/library', '/adminDashboard'];
       if (protectedPaths.some(path => location.pathname.startsWith(path))) {
         navigate('/', { replace: true });
       }
     }
-  }, [location.pathname]);
+  }, [location.pathname, navigate, setIsAuthenticated]);
 
   return null;
 };
@@ -98,7 +98,7 @@ const ProfileLayoutWithAuth = ({ setIsAuthenticated, children }) => (
 const App = () => {
   const { isAuthenticated, setIsAuthenticated } = useAuth();
 
-  // Route Guards
+  // Updated Route Guards
   const PrivateRoute = (element) => {
     return isAuthenticated ? element : <Navigate to="/" />;
   };
@@ -108,13 +108,23 @@ const App = () => {
   };
 
   const PrivateAdminRoute = (element) => {
-    const isAdmin = localStorage.getItem('isAdmin');
-    return isAuthenticated && isAdmin ? element : <Navigate to="/" />;
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    const token = localStorage.getItem('token');
+    
+    if (!token || !isAdmin) {
+      return <Navigate to="/admin" />;
+    }
+    return element;
   };
 
   const AuthenticatedAdminRoute = (element) => {
-    const isAdmin = localStorage.getItem('isAdmin');
-    return !isAuthenticated || !isAdmin ? element : <Navigate to="/adminDashboard" />;
+    const isAdmin = localStorage.getItem('isAdmin') === 'true';
+    const token = localStorage.getItem('token');
+    
+    if (token && isAdmin) {
+      return <Navigate to="/adminDashboard" />;
+    }
+    return element;
   };
 
   // Router Configuration
@@ -223,15 +233,13 @@ const App = () => {
       path: "/adminDashboard",
       element: PrivateAdminRoute(<Admin />),
       children: [
-        { index: true, element: <Navigate to="home" replace /> },
-        {
-          path: "home",
-          element: <AdminLayout />,
-          errorElement: <ErrorPage />,
-          children: [
-            { path: "", element: <AdminHome /> },
-            { path: "update/:id", element: <UpdateUserData /> }
-          ]
+        { 
+          index: true, 
+          element: <AdminHome /> 
+        },
+        { 
+          path: "update/:id", 
+          element: <UpdateUserData /> 
         }
       ]
     }
