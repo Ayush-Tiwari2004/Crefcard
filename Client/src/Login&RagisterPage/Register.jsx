@@ -56,7 +56,6 @@ export const Register = () => {
             } else if (!success) {
                 handleError('password atleast 4 charactor');
             }
-            // console.log(result);
         }
         catch (err) {
             handleError(err);
