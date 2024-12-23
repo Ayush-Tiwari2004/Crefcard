@@ -27,7 +27,7 @@ const CardCreator = () => {
   });
   const [isCreating, setIsCreating] = useState(false); // Toggle form visibility
 
-  // Fetch cards from the backend
+  // Fetch cards from the backends
   const fetchCards = async () => {
     try {
       const response = await axios.get(`${import.meta.env.VITE_BACKEND_API_URL}/api/posts/getPosts`);
