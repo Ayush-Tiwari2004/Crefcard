@@ -5,10 +5,6 @@ import BookCardData from "../../../API/BookCardData.json";
 export const getBooksData = ({ params }) => {
   // Check both BookCardData and ProfileCardData for matching ID
   const profiles = BookCardData.filter((profile) => profile.id === params.id);
-  
-  // Combine results from both data sources
-  // const profiles = [...bookProfiles, ...recentProfiles];
-  
   return profiles;
 };
 

@@ -19,6 +19,7 @@ const authRouter = require('./routes/authroutes');
 const postRouter = require('./routes/postrouts');
 const adminRouter = require('./routes/adminroutes');
 const profilePicRouter = require('./routes/profilepic');
+const contactRouter = require('./routes/contactroutes');
 
 // Connect to database
 connectDB();
@@ -53,6 +54,7 @@ app.use('/api/auth', authRouter);
 app.use('/api/posts', postRouter); // Unique route for posts
 app.use('/api/admin', adminRouter); // Unique route for admin
 app.use('/api/profile', profilePicRouter); // Unique route for profile picture
+app.use('/api', contactRouter);
 
 // Health check route
 app.get("/", (req, res) => {

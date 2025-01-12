@@ -1,9 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const ShowPost = () => {
   const [cards, setCards] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   const fetchCards = async () => {
     try {
@@ -18,55 +18,22 @@ const ShowPost = () => {
     fetchCards();
   }, []);
 
-  const handleNext = () => {
-    if (currentIndex < cards.length - 3) {
-      setCurrentIndex(currentIndex + 1);
-    }
-  };
-
-  const handlePrevious = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-    }
-  };
-
   return (
-    <div className="relative group w-full overflow-hidden">
-      {/* Carousel Container */}
-      <div
-        className="flex gap-4 transition-transform duration-500"
-        style={{ transform: `translateX(-${currentIndex * 100 / 3}%)` }}
-      >
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 mt-8 gap-4">
         {cards.map((card) => (
-          <div
+          <NavLink 
             key={card._id}
-            className="min-w-[33.333%] flex-shrink-0 border p-4 shadow-md rounded bg-white"
+          to={`/profile/${card._id}`}>
+          <div
+            className="h-44 p-4 border-b-2 border-b-[#0a092d] hover:border-b-slate-200 rounded-lg bg-[#2e3856] relative text-white"
           >
-            <h2 className="text-xl font-bold">{card.title}</h2>
-            <p>{card.number}</p>
-            <p>{card.user_name}</p>
+            <h6 className="text-sm font-medium mb-3">{card.title}</h6>
+            <p className="text-[12px]">{card.writer}</p>
+            {/* Display other fields as needed */}
           </div>
+          </NavLink>
         ))}
       </div>
-
-      {/* Previous Button */}
-      <button
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        onClick={handlePrevious}
-        disabled={currentIndex === 0}
-      >
-        &lt;
-      </button>
-
-      {/* Next Button */}
-      <button
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        onClick={handleNext}
-        disabled={currentIndex >= cards.length - 3}
-      >
-        &gt;
-      </button>
-    </div>
   );
 };
 

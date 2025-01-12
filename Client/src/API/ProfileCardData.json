@@ -70,8 +70,7 @@
         "title": "Python",
         "booktype": "Application",
         "solutions": "Solution",
-        "bookcontant": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-        "longtext": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
+        "description": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
         "yourQuestions":[
             {
                 "writeYourQuestion": "1.) What is the difference between let, var, and const in JavaScript?"
@@ -118,8 +117,7 @@
         "title": "History",
         "booktype": "Places",
         "solutions": "Solution",
-        "bookcontant": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-        "longtext": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
+        "description": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
         "yourQuestions":[
             {
                 "writeYourQuestion": "1.) सिंधु घाटी सभ्यता के मुख्य नगर कौन-कौन से थे?"
@@ -155,8 +153,7 @@
         "title": "Hindi",
         "booktype": "Application",
         "solutions": "Solution",
-        "bookcontant": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-        "longtext": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
+        "description": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
         "yourQuestions":[
             {
                 "writeYourQuestion": "1.) हिंदी साहित्य के पितामह किसे कहा जाता है?"
