@@ -48,7 +48,7 @@ const ProfileHeader = ({ toggleSidebar }) => {
                                     className='text-white text-2xl sm:text-3xl cursor-pointer hover:text-gray-300' 
                                 />
                                 <NavLink to="/profile">
-                                    <SiQuizlet className='text-white text-2xl sm:text-3xl hover:text-gray-300' />
+                                    <img src="/images/crefcard_logo1.png" className='text-white h-10 hover:text-gray-300' alt="" />
                                 </NavLink>
                             </div>
 
