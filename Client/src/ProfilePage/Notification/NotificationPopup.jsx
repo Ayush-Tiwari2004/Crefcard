@@ -18,6 +18,12 @@ export const NotificationPopup = ({ show, onClose }) => {
 
     if (!show) return null;
 
+        const notificationData = [
+            {id : "sdddd55", notifications: "You have 5 unseen flashcards pending!", notificationTime: "yesterday"},
+            {id : "sdfhsddd55", notifications: "Your premium subscription expires in 3 days!", notificationTime: "5 day ago"},
+            {id : "sddd5df58g8f5", notifications: "You're now in the top 10% of learners!", notificationTime: "9 : 43"},
+            {id : "sd54gf5dd55", notifications: "Limit to 1-2 notifications per day maximum!", notificationTime: "just now"}
+        ]
     return (
         <div className="fixed inset-0 z-50 flex items-start justify-center md:justify-start md:ml-[230px]">
             <div className="fixed inset-0 bg-black opacity-50" onClick={onClose}></div>
@@ -36,10 +42,14 @@ export const NotificationPopup = ({ show, onClose }) => {
                         {/* Add more notification items here */}
                         <div className="mt-4 space-y-3">
                             {/* Example notification items */}
-                            <div className="p-2 hover:bg-slate-800 rounded-md transition-colors">
-                                <p className="text-xs md:text-sm">No new notifications</p>
-                                <span className="text-[10px] md:text-xs text-gray-400">Just now</span>
-                            </div>
+                            {
+                                notificationData.map((item) => (
+                                    <div key={item.id} className="p-2 hover:bg-slate-800 rounded-md transition-colors">
+                                        <p className="text-xs md:text-sm">{item.notifications}</p>
+                                        <span className="text-[10px] md:text-xs text-gray-400">{item.notificationTime}</span>
+                                    </div>
+                                ))
+                            }
                         </div>
                     </div>
                 </div>

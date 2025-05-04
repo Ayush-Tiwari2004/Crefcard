@@ -12,3 +12,8 @@ export const getLanguageQuestionsData = ({params}) =>{
   const recentProfiles = ProfileCardData.filter((questions) => questions.id === params.id);
   return recentProfiles;
 }
+
+export const recentCardData = ({params}) => {
+  const recentlyAddedCardData = ProfileCardData.filter((recentdata) => recentdata.id === params.id);
+  return recentlyAddedCardData; 
+}

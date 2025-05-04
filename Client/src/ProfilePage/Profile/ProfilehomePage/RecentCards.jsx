@@ -1,11 +1,11 @@
-import { useState, useRef, Children } from "react";
+import { useState, useRef } from "react";
 import { VscVerifiedFilled } from "react-icons/vsc";
 import { FaRegUser } from "react-icons/fa";
 import { TbCards } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-export const RecentCards = ({ data = [], Recent }) => {
+export const RecentCards = ({ data = [], Recent, fleshCardLinks}) => {
     const [showControls, setShowControls] = useState(false);
     const sliderRef = useRef(null);
 
@@ -54,7 +54,7 @@ export const RecentCards = ({ data = [], Recent }) => {
                         key={index.id}
                         className="flex-none w-full sm:w-[calc(50%-16px)] md:w-[calc(33.333%-16px)] snap-start"
                     >
-                        <ProfileCard data={index} />
+                        <ProfileCard data={index} fleshCardLinks={fleshCardLinks ? fleshCardLinks(index.id) : null}/>
                     </div>
                 ))}
             </div>
@@ -62,7 +62,7 @@ export const RecentCards = ({ data = [], Recent }) => {
     );
 };
 
-export const ProfileCard = (props) => {
+export const ProfileCard = ({ data, fleshCardLinks }) => {
     const footerIcon = {
         verifiedStamp: <VscVerifiedFilled className="text-[16px]" />,
         user: <FaRegUser />,
@@ -73,10 +73,10 @@ export const ProfileCard = (props) => {
         id, title, number, user_img, user_name, profession, description,
         Background, width, height, icons, randomUsers, fleshcard,
         userImg, nextw, nexth, noOfCards, classes, pding
-    } = props.data;
+    } = data;
 
     return (
-        <NavLink to={`/profile/popularQuestions/${id}`}>
+        <NavLink to={fleshCardLinks}>
             <div className="h-44 p-4 border-b-2 border-b-[#0a092d] hover:border-b-slate-200 flex flex-col justify-between rounded-lg bg-[#2e3856] relative text-white">
                 <div className="flex flex-col overflow-y-scroll overflow-x-hidden gap-3">
                     <h6 className="text-sm sticky top-0 pb-1 w-full bg-[#2e3856] text-white">{title}</h6>

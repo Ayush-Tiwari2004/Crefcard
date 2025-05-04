@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* color: white; */
     font-family: "Poppins";
     list-style: none;
     scrollbar-width: none;
@@ -152,16 +153,25 @@ clip-path: polygon(0 0, 100% 0, 38% 100%, 0% 100%);
     scrollbar-width: thin;
     scrollbar-color: #586380 #2e3856;
 }
-
 .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
 }
-
 .custom-scrollbar::-webkit-scrollbar-track {
     background: #2e3856;
 }
-
 .custom-scrollbar::-webkit-scrollbar-thumb {
     background-color: #586380;
     border-radius: 4px;
+}
+.recentcardchips {
+        border-bottom: 3px solid transparent;
+        &:hover{
+            border-color: ghostwhite;
+        }
+}
+  .flipped .rotate-x-180 {
+    transform: rotateX(180deg);
+}
+  .rotate-x-180 {
+    transform: rotateX(180deg);
 }

@@ -1,0 +1,32 @@
+[
+    {
+        "id": "498sgg9sb89",        
+        "chipscardname": "Flashcard",
+        "icon": "RiCheckboxMultipleBlankFill"
+    },
+    {
+        "id": "498ssdfggg9sb89",        
+        "chipscardname": "Learn",
+        "icon": "RiCheckboxMultipleBlankFill"
+    },
+    {
+        "id": "498sgg9sb89",        
+        "chipscardname": "Test",
+        "icon": "RiCheckboxMultipleBlankFill"
+    },
+    {
+        "id": "498sgghtr9sb89",        
+        "chipscardname": "Blocks",
+        "icon": "RiCheckboxMultipleBlankFill"
+    },
+    {
+        "id": "49sdklf8sgg9sb89",        
+        "chipscardname": "Blast",
+        "icon": "RiCheckboxMultipleBlankFill"
+    },
+    {
+        "id": "498sgg9sbslkjdfljgr89",        
+        "chipscardname": "Match",
+        "icon": "RiCheckboxMultipleBlankFill"
+    }
+]

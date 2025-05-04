@@ -1,6 +1,6 @@
 [
     {
-        "id":"first",
+        "id": "first",
         "bookCategory": "Math",
         "booktype": "Calculas",
         "text": "",
@@ -10,10 +10,34 @@
         "user_img": "/images/profilimg.png",
         "Background": "white",
         "width": "36px",
-        "height": "36px"
+        "height": "36px",
+        "grow": "15 studiers today",
+        "reviews": "4.9 (reviews)",
+        "recentCardQuestion": [
+            {
+                "question": "Hay gys this is my flashcard and my name is."
+            },
+            {
+                "question": "1857 की क्रांति को क्या कहा जाता है?"
+            },
+            {
+                "question": "In which continent is the Himalaya mountain range located?"
+            }
+        ],
+        "recentCardAnswer": [
+            {
+                "answer": "My name is Ayush Tiwari"
+            },
+            {
+                "answer": "भारत की पहली स्वतंत्रता संग्राम ।"
+            },
+            {
+                "answer": "In the continent of Asia."
+            }
+        ]
     },
     {
-        "id":"second",
+        "id": "second",
         "title": "Que Chevere 2 1B",
         "number": "65 terms",
         "user_name": "Santo Baba",
@@ -21,21 +45,57 @@
         "Background": "white",
         "profession": "Teacher",
         "width": "36px",
-        "height": "36px"
+        "height": "36px",
+        "grow": "156 studiers today",
+        "reviews": "1.9 (reviews)",
+        "recentCardQuestion": [
+            {
+                "question": "भारत की सबसे लंबी नदी कौन सी है?"
+            },
+            {
+                "question": "What was the main mission of Prometheus?"
+            }
+        ],
+        "recentCardAnswer": [
+            {
+                "answer": "गंगा नदी।"
+            },
+            {
+                "answer": "To find the alien Engineers who might have created humans."
+            }
+        ]
     },
     {
-        "id":"third",
-        "title": "5-1",
+        "id": "third",
+        "title": "Battalion 609 (Chief Commander)",
         "number": "13 terms",
-        "user_name": "Ayush Tiwari",
+        "user_name": "Santosh Yadav",
         "user_img": "/images/profilimg.png",
         "Background": "white",
         "profession": "ARMY",
         "width": "36px",
-        "height": "36px"
+        "height": "36px",
+        "grow": "96 studiers today",
+        "reviews": "3.1 (reviews)",
+        "recentCardQuestion": [
+            {
+                "question": "Who was the captain of the ship?"
+            },
+            {
+                "question": "How was the Prometheus ship destroyed?"
+            }
+        ],
+        "recentCardAnswer": [
+            {
+                "answer": "Janek"
+            },
+            {
+                "answer": "Janek crashed Prometheus into the Engineer’s ship to stop it."
+            }
+        ]
     },
     {
-        "id":"fout",
+        "id": "fout",
         "title": "JS-US009",
         "number": "6 terms",
         "user_name": "Meino777",
@@ -45,7 +105,7 @@
         "height": "36px"
     },
     {
-        "id":"five",
+        "id": "five",
         "title": "JS Operations Security (OPSEC)",
         "number": "6 terms",
         "user_name": "Ms Jomoka",
@@ -55,7 +115,7 @@
         "height": "36px"
     },
     {
-        "id":"six",
+        "id": "six",
         "title": "Annual OSD Records and Information Management Training (Pre-Test)",
         "number": "18 terms",
         "user_name": "Tittne213",
@@ -66,12 +126,12 @@
         "height": "36px"
     },
     {
-        "id":"kslf4ce5e5flkjslkfjkej",
+        "id": "kslf4ce5e5flkjslkfjkej",
         "title": "Python",
         "booktype": "Application",
         "solutions": "Solution",
         "description": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
-        "yourQuestions":[
+        "yourQuestions": [
             {
                 "writeYourQuestion": "1.) What is the difference between let, var, and const in JavaScript?"
             },
@@ -93,32 +153,32 @@
         ],
         "yourAnswer": [
             {
-                "writeYourAnswer" : "var: Function-scoped and can be redeclared. Its value can be updated, and it is hoisted. let: Block-scoped, cannot be redeclared, but its value can be updated. It is also hoisted but not a initialized.const: Block-scoped, cannot be redeclared, and its value cannot be updated. It is used for constants."
+                "writeYourAnswer": "var: Function-scoped and can be redeclared. Its value can be updated, and it is hoisted. let: Block-scoped, cannot be redeclared, but its value can be updated. It is also hoisted but not a initialized.const: Block-scoped, cannot be redeclared, and its value cannot be updated. It is used for constants."
             },
             {
-                "writeYourAnswer" : " In MongoDB, a collection is analogous to a table in relational databases. It is a grouping of MongoDB documents. Documents within a collection can have different fields, but they are usually related to a specific domain. For example, a 'users' collection might store user data."
+                "writeYourAnswer": " In MongoDB, a collection is analogous to a table in relational databases. It is a grouping of MongoDB documents. Documents within a collection can have different fields, but they are usually related to a specific domain. For example, a 'users' collection might store user data."
             },
             {
-                "writeYourAnswer" : " React is a JavaScript library for building user interfaces, developed by Facebook. It is popular because."
+                "writeYourAnswer": " React is a JavaScript library for building user interfaces, developed by Facebook. It is popular because."
             },
             {
-                "writeYourAnswer" : "Pagination is a technique used to divide large datasets into smaller, more manageable chunks (pages). It improves."
+                "writeYourAnswer": "Pagination is a technique used to divide large datasets into smaller, more manageable chunks (pages). It improves."
             },
             {
-                "writeYourAnswer" : "Tasks are executed sequentially, one after another.A task must complete before the next task starts.It can block the execution of other operations.Example: Reading a file line by line in a synchronous manner."
+                "writeYourAnswer": "Tasks are executed sequentially, one after another.A task must complete before the next task starts.It can block the execution of other operations.Example: Reading a file line by line in a synchronous manner."
             },
             {
-                "writeYourAnswer" : "var: Function-scoped and can be redeclared. Its value can be updated, and it is hoisted. let: Block-scoped, cannot be redeclared, but its value can be updated. It is also hoisted but not a initialized.const: Block-scoped, cannot be redeclared, and its value cannot be updated. It is used for constants."
+                "writeYourAnswer": "var: Function-scoped and can be redeclared. Its value can be updated, and it is hoisted. let: Block-scoped, cannot be redeclared, but its value can be updated. It is also hoisted but not a initialized.const: Block-scoped, cannot be redeclared, and its value cannot be updated. It is used for constants."
             }
         ]
     },
     {
-        "id":"sf4s7sfff7gd4r86g4d6g4rg",
+        "id": "sf4s7sfff7gd4r86g4d6g4rg",
         "title": "History",
         "booktype": "Places",
         "solutions": "Solution",
         "description": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
-        "yourQuestions":[
+        "yourQuestions": [
             {
                 "writeYourQuestion": "1.) सिंधु घाटी सभ्यता के मुख्य नगर कौन-कौन से थे?"
             },
@@ -130,7 +190,6 @@
             },
             {
                 "writeYourQuestion": "6.) प्रथम विश्व युद्ध कब और क्यों शुरू हुआ?"
-                
             }
         ],
         "yourAnswer": [
@@ -149,12 +208,12 @@
         ]
     },
     {
-        "id":"sevensflkjslkfjkej",
+        "id": "sevensflkjslkfjkej",
         "title": "Hindi",
         "booktype": "Application",
         "solutions": "Solution",
         "description": "Python is a high-level, interpreted programming language known for its simplicity, readability, and versatility. Created by Guido van Rossum and first released in 1991, Python has become one of the most popular programming languages worldwide due to its wide range of applications and ease of use.",
-        "yourQuestions":[
+        "yourQuestions": [
             {
                 "writeYourQuestion": "1.) हिंदी साहित्य के पितामह किसे कहा जाता है?"
             },
@@ -173,7 +232,7 @@
                 "writeYourAnswer": "हिंदी साहित्य के पितामह भारतेंदु हरिश्चंद्र को कहा जाता है।"
             },
             {
-               "writeYourAnswer": "रामचरितमानस की रचना गोस्वामी तुलसीदास ने की थी।"
+                "writeYourAnswer": "रामचरितमानस की रचना गोस्वामी तुलसीदास ने की थी।"
             },
             {
                 "writeYourAnswer": "प्रेमचंद का मूल नाम धनपत राय श्रीवास्तव था।"
@@ -183,44 +242,43 @@
             }
         ]
     },
-    
     {
-        "id":"thirteen",
+        "id": "thirteen",
         "userImg": "/images/profilimg.png",
         "randomUsers": "calculas: Earlu Transcandantels",
         "classes": "4 classes",
         "noOfCards": "20526 fleshcard sets",
         "icons": "user",
-        "nextw" : "40px",
-        "nexth" : "40px",
-        "pding" : "2px 8px", 
-        "Background":"white",
-        "fleshcard" : "fleshcard"
+        "nextw": "40px",
+        "nexth": "40px",
+        "pding": "2px 8px",
+        "Background": "white",
+        "fleshcard": "fleshcard"
     },
     {
-        "id":"forteen",
+        "id": "forteen",
         "userImg": "/images/dum.jpg",
         "randomUsers": "kuriachrisyuis",
         "classes": "0 classes",
         "noOfCards": "28040 fleshcard sets",
         "icons": "user",
-        "nextw" : "40px",
-        "nexth" : "40px",
-        "pding" : "2px 8px", 
-        "Background":"white",
-        "fleshcard" : "fleshcard"
+        "nextw": "40px",
+        "nexth": "40px",
+        "pding": "2px 8px",
+        "Background": "white",
+        "fleshcard": "fleshcard"
     },
     {
-        "id":"fifteen",
+        "id": "fifteen",
         "userImg": "/images/profilimg.png",
         "randomUsers": "Wilfred_Mburu",
         "classes": "0 classes",
         "noOfCards": "32096 fleshcards",
         "icons": "user",
-        "nextw" : "40px",
-        "nexth" : "40px",
-        "pding" : "2px 8px", 
-        "Background":"white",
-        "fleshcard" : "fleshcard"
+        "nextw": "40px",
+        "nexth": "40px",
+        "pding": "2px 8px",
+        "Background": "white",
+        "fleshcard": "fleshcard"
     }
 ]
