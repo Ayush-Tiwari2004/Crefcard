@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "set NODE_ENV=development&& nodemon Server/app.js",
-    "build": "echo 'No client build step needed'",
+    "build": "npm install && npm install --prefix Client && npm run build --prefix Client",
     "start": "set NODE_ENV=production&& node Server/app.js"
   },
   "keywords": [],
