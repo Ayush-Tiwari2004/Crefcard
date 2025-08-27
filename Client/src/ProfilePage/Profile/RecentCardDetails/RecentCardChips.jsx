@@ -12,10 +12,12 @@ const RecentCardChips = () => {
         <>
             {
                 RecentChipsData.map((index) => (
-                    <section key={index.id} className='group w-fit'>
+                    <section key={index.id} className=''>
+                        <div className="group flex justify-center md:justify-start">
                         <div className="flex items-center justify-center gap-2 rounded-md text-white bg-[#2e3856] group-hover:bg-gray-700 py-3 w-60 recentcardchips">
                             <span>{modeIcons[index.icon]}</span>
                             <p>{index.chipscardname}</p>
+                        </div>
                         </div>
                     </section>
                 ))

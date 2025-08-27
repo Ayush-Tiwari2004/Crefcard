@@ -93,7 +93,7 @@ const RecentCardDetails = () => {
                     <p className='text-gray-300 text-[10px]'>Created 1 year ago</p>
                     </div>
                 </div>
-            <div className="w-full max-w-[800px] mx-auto">
+            <div className="w-full max-w-[800px] mx-auto -ml-2">
               <Slider {...settings}>
                 {
                   index.recentCardQuestion && index.recentCardQuestion.map((data, i) => (
@@ -101,7 +101,7 @@ const RecentCardDetails = () => {
                       <CardFlipFleshcard
                         question={data.question}
                         answer={index.recentCardAnswer?.[i]?.answer || "No answer provided"}
-                      />
+                      /> 
                     </div>
                   ))
                 }
@@ -113,7 +113,7 @@ const RecentCardDetails = () => {
       }
 
       {/* Sidebar section (right side) */}
-      <div className="w-full md:w-1/3 lg:w-1/3 bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl hidden md:block">
+      {/* <div className="w-full md:w-1/3 lg:w-1/3 bg-gray-50 dark:bg-gray-800 p-4 rounded-2xl hidden md:block">
         <h4 className="font-medium text-lg mb-3 text-gray-800 dark:text-white">
           Additional Information
         </h4>
@@ -123,7 +123,7 @@ const RecentCardDetails = () => {
         <div className="overflow-hidden rounded-xl w-fit mt-5">
         <iframe width="280" height="480"  src="https://www.youtube.com/embed/QFwJJywzbDs?si=0l5DLfvcqcmrrPR8?autoplay=1&mute=1" title="YouTube video player" muted frameborder="0" allow="accelerometer; autoplay; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-      </div>
+      </div> */}
     </section>
   )
 }
